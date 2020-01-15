@@ -1,0 +1,32 @@
+{
+  "name": "cypress-is-neat",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Steven Hicks <steven.j.hicks@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "start": "npm run stitch && concurrently --names 'REVEAL,STITCH' -c 'red,blue' 'npm run start:reveal' 'npm run watch'",
+    "build": "npm run stitch && npm run build:reveal",
+    "build:reveal": "reveal-md ./slides/stitched.md --static _site --static-dirs=fonts,images,_assets,plugin --assets-dir ''",
+    "start:reveal": "reveal-md ./slides/stitched.md -w --port 1950",
+    "stitch": "node _build/stitch.js",
+    "watch": "npm-watch",
+    "test": "jest --watch"
+  },
+  "watch": {
+    "stitch": {
+      "patterns": [
+        "slides/src"
+      ],
+      "extensions": "md"
+    }
+  },
+  "devDependencies": {
+    "combine-files": "^1.1.8",
+    "concurrently": "^4.0.1",
+    "jest": "^24.8.0",
+    "npm-watch": "^0.4.0",
+    "reveal-md": "^2.4.1"
+  }
+}
