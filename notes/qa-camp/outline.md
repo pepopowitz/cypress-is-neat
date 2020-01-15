@@ -5,11 +5,6 @@ Cypress
   - Lack of confidence in unit
   - More confidence in e2e, but they're harder
 
-- Artsy
-
-  - no QA
-  - heavily automated
-
 - cypress
   - architecture
     - built on mocha
@@ -45,6 +40,11 @@ Cypress
 
   - flaky/flappy
   - break often
+
+* Artsy
+
+  - no QA
+  - heavily automated
 
 * Cypress at Artsy
   - integrity
