@@ -27,20 +27,28 @@ Footer: false
 
 ## **Cypress:** End-to-end Testing For Developers & Quality Engineers
 
-### Steven Hicks
+<div class="contact">
+<h3>Steven Hicks</h3>
 
+<p>
 <svg class="icon">
   <use xlink:href="#si-zocial-twitter" />
 </svg>@pepopowitz
+</p>
 
+<p>
 <svg class="icon">
   <use xlink:href="#si-zocial-email" />
 </svg>steven.j.hicks@gmail.com
+</p>
 
+<p>
 <svg class="icon">
   <use xlink:href="#si-zocial-cloudapp" />
-</svg>stevenhicks.me/cypress-for-devs-and-qa
+</svg> stevenhicks.me/cypress-for-devs-and-qa
+</p>
 
+</div>
 Notes:
 
 pre-game:
@@ -73,12 +81,11 @@ NYC, MKE
 our mission is to expand the art market,
 
 and we're doing that with a platform for collecting and discovering art.
-
 ---
 
 Trail: Testing Strategies
 
-# Testing Pyramid
+## Testing Pyramid
 
 TODO: test pyramid
 
@@ -90,7 +97,7 @@ Testing strategies
 
 Trail: Testing Strategies
 
-# Testing Pyramid
+## Testing Pyramid
 
 TODO: test pyramid, with costs/benefits
 
@@ -98,79 +105,206 @@ Notes:
 
 - Lack of confidence in unit
 - More confidence in e2e, but they're harder
-- may vary depending on tech stack (rails vs js)
 
 ---
 
-Trail: Module
-Layout: module
+Layout: list
+Trail: Testing Strategies, Testing Pyramid
 
-## More stuff!!!! Including a trail of 'Module'.
+## Why are integration/e2e tests hard?
 
-### Happening here <!-- .element: class="fragment" -->
+### **-** Many moving parts
 
-#### If you know what I mean <!-- .element: class="fragment" -->
+<!-- .element: class="fragment" -->
 
----
+### **-** Stateful
 
-Layout: steve
-Trail: Module,Section
+<!-- .element: class="fragment" -->
 
-# Stuff!
+### **-** Data
 
-## Including a trail of Module & Section
+<!-- .element: class="fragment" -->
 
----
+### **-** **Tooling**
 
-Trail: Module,Section,Dog
-
-# Three trails!
-
-## Module, section and dog!
+<!-- .element: class="fragment" -->
 
 Notes:
-and I got some notes, too!
+
+parts: you're not just testing individual units anymore
+
+(parts): more could go wrong
+
+state: to complete a test, you need to put the system into a specific state; state is hard to deal with
+
+data: 1. long-living data or 2. lots of fake data to set up/tear down
+
+tooling - may vary depending on tech stack (rails vs js)
+
+(tooling) - selenium
+
+we'll circle back to this list at the end
+---
+
+- cypress
 
 ---
 
-Footer: false
-
-Trail: Module
-
-# A small trail
-
-## Module
-
-### But no footer
+  - architecture
+    - built on mocha
+    - something about chrome/electron
+      - the browser itself is executing your tests
+        - which makes it faster than selenium
+        - tight feedback loop
+        - allows you to easily intercept/mock network activity
+    - NOT built on selenium
 
 ---
 
-LineNumbers: 1,3,4,5-7
+  - ide
+    - time traveling
 
-```
-abc
-var x = y;
-var x = y;
-var x = y;
-var x = y;
-var x = y;
-var x = y;
-var x = y;
-var x = y;
-var x = y;
-var x = y;
-```
 ---
 
-# Outro
+  - vs selenium
+    - > Most end-to-end testing tools are Selenium-based, which is why they all share the same problems. To make Cypress different, we built a new architecture from the ground up. Whereas Selenium executes remote commands through the network, Cypress runs in the same run-loop as your application.
+      - https://www.cypress.io/how-it-works/
+    - automatically waits :)
+    - file watching to trigger execution :)
+    - debugging within chrome :)
+    - not cross-browser :(
 
-## But no trail
+  v javascript only
+    selenium supports many languages
+  v chrome only
+    selenium supports many
+  ^ quick setup
+  ^ runs directly in the browser
+    selenium has layers between your code & the browser
+    you can inspect things in your console!
+  ^ fast
+    fewer layers
+  ^ reliable
+    fewer layers
+    less waiting - it automatically waits for you.
+  ^ interactive
+    time travelling
+  ^ server mocking
+    maybe you don't want this
+    
+---
 
-Note:
+* examples
 
-and some outro notes
+  - cy.visit
+  - cy.get
+  - cy.contains
 
-go here
+---
+
+* mocking
+
+  - you can mock network responses easily
+    - https://docs.cypress.io/api/commands/server.html#Syntax
+    - but you probably don't want to - that just gives you a less reliable test.
+---
+
+- artsy app
+
+---
+
+- integrity
+
+---
+
+- examples
+
+---
+
+- no mocking
+  - storing user creds
+
+---
+
+- cypress + styled-components
+  - data-test- attributes
+
+---
+
+- circleci
+
+
+---
+
+  - when writing a test, you're recording steps...switching on presence of specific elements isn't as obvious as you'd think it would be
+    - https://applitools.com/blog/cypress-vs-selenium-webdriver-better-or-just-different
+      - search for "bizarre execution"
+
+
+---
+
+  - How to keep tests from breaking often
+
+* Bad tests:
+
+  - flaky/flappy
+  - break often
+
+  
+---
+
+  - same language we use for development
+    - I don't know that I'd recommend cypress to a team that wasn't familiar with JS
+      - having said that, it's not like you're doing COMPLICATED js. But the learning curve is a consideration
+
+---
+
+  - Don't mock things
+    - or mock things, depending on your goals
+
+---
+
+  - cypress-testing-library
+---
+
+- verdict: Is it a replacement for selenium?
+  - No, I don't think so. Not yet.
+    - it's another TOOL
+    - it can be really useful to get you to a place where QA and engineers are working in the same tests
+    - it can give engineers more confidence in their changes
+    - but it still lacks cross-browser testing
+    - It makes it easier for engineers to write e2e tests, which can end one of two ways:
+      - no need for qa
+      - engineers & qa can share tests
+      - which you end up following says a lot about the relationships of your organization.
+
+---
+
+- return to what makes integration/e2e testing hard
+  - many moving parts
+  - stateful
+  - data
+    - long-living data
+    - or lots of fake data to set up/tear down
+  - tooling
+
+  - the pyramid is wrong
+    - with tooling like cypress & even selenium,
+      - it's not about unit vs integration vs e2e
+
+---
+
+    - line between independent & dependent tests
+      - this is where it goes from hard to easy
+      - and it's not because of what types of tests they are
+      - it's because of the first three things listed above
+        - moving parts, state, data
+    - and those things mean our tests are dependent on things outside of themselves
+
+---
+
+  - independent vs dependent
+
 
 ---
 
@@ -178,21 +312,31 @@ Footer: false
 
 <!-- .slide: data-background="/images/title.jpg" class="title" -->
 
-# **Thank you!**
+# Thank you!
 
-## Steven Hicks
+<div class="contact">
+<h3>Steven Hicks</h3>
 
+<p>
 <svg class="icon">
   <use xlink:href="#si-zocial-twitter" />
 </svg>@pepopowitz
+</p>
 
+<p>
 <svg class="icon">
   <use xlink:href="#si-zocial-email" />
 </svg>steven.j.hicks@gmail.com
+</p>
 
+<p>
 <svg class="icon">
   <use xlink:href="#si-zocial-cloudapp" />
-</svg>stevenhicks.me/cypress-for-devs-and-qa
+</svg> stevenhicks.me/cypress-for-devs-and-qa
+</p>
+
+</div>
+
 
 Notes:
 
@@ -210,7 +354,7 @@ Layout: long-list
 
 Trail: Resources, Image Credits
 
-##### [some image](some url)
+##### [Cover - Wil Stewart](https://unsplash.com/photos/UErWoQEoMrc)
 
 ---
 

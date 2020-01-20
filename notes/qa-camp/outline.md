@@ -1,5 +1,9 @@
 Cypress
 
+- intro
+  - me
+  - artsy
+  
 - Testing strategies
 
   - Lack of confidence in unit
@@ -94,3 +98,31 @@ Cypress
   - Shortcomings
   - Cypress at Artsy
   - Learnings
+
+* Research
+  - how to set up data before and after?
+
+
+selenium webdriver vs cypress
+https://dzone.com/articles/cypress-vs-selenium-webdriver-which-is-better-for
+https://blog.red-badger.com/2017/6/16/cypress-a-genuine-alternative-to-selenium-at-last
+
+cypress
+  v javascript only
+    selenium supports many languages
+  v chrome only
+    selenium supports many
+  ^ quick setup
+  ^ runs directly in the browser
+    selenium has layers between your code & the browser
+    you can inspect things in your console!
+  ^ fast
+    fewer layers
+  ^ reliable
+    fewer layers
+    less waiting - it automatically waits for you.
+  ^ interactive
+    time travelling
+  ^ server mocking
+    maybe you don't want this
+  

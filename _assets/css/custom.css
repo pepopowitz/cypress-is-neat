@@ -1,10 +1,10 @@
 body {
-  --brand: #0d0d26;
-  --brand-context: #596a73;
-  --brand-medium: #8f2611;
-  --brand-module-bg: #596a73;
-  --brand-light: #f7eee6;
-  --brand-white: #fdfcfc;
+  --brand: #2d2618;
+  --brand-context: #9c6742;
+  --brand-medium: #f29e3b;
+  --brand-module-bg: #694427;
+  --brand-light: #f4d0aa;
+  --brand-white: white;
   --brand-black: #222222;
 
   color: var(--brand-context);
@@ -98,19 +98,41 @@ body {
   color: var(--brand-white);
   text-shadow: 0 1px 6px var(--brand-black);
 }
+.reveal .title h1,
+.reveal .title h2,
+.reveal .title h3,
+.reveal .title p {
+  color: var(--brand-white);
+}
 .reveal .title {
-  color: var(--brand-context);
   text-align: left;
+  text-shadow: 2px 2px 5px var(--brand-black);
 }
 .reveal .title h1 {
-  margin-bottom: 4rem;
+  position: fixed;
+  top: 0;
   line-height: 1em;
+  text-shadow: 2px 2px 5px var(--brand-black);
 }
 .reveal .title h2 {
-  margin-top: -20px;
+  position: fixed;
+  top: 0;
+  max-width: 522px;
+  text-shadow: 2px 2px 5px var(--brand-black);
+}
+.reveal .title strong {
+  color: var(--brand-light);
+}
+.reveal .title .contact {
+  position: fixed;
+  bottom: 0;
+}
+.reveal .title h3 {
+  color: var(--brand-light);
+  text-shadow: 2px 2px 5px var(--brand-black);
 }
 .reveal .title svg {
-  fill: var(--brand-context);
+  fill: var(--brand-light);
   width: 2em;
   height: 1em;
   vertical-align: text-bottom;

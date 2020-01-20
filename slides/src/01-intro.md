@@ -12,20 +12,28 @@ Footer: false
 
 ## **Cypress:** End-to-end Testing For Developers & Quality Engineers
 
-### Steven Hicks
+<div class="contact">
+<h3>Steven Hicks</h3>
 
+<p>
 <svg class="icon">
   <use xlink:href="#si-zocial-twitter" />
 </svg>@pepopowitz
+</p>
 
+<p>
 <svg class="icon">
   <use xlink:href="#si-zocial-email" />
 </svg>steven.j.hicks@gmail.com
+</p>
 
+<p>
 <svg class="icon">
   <use xlink:href="#si-zocial-cloudapp" />
-</svg>stevenhicks.me/cypress-for-devs-and-qa
+</svg> stevenhicks.me/cypress-for-devs-and-qa
+</p>
 
+</div>
 Notes:
 
 pre-game:
@@ -58,90 +66,3 @@ NYC, MKE
 our mission is to expand the art market,
 
 and we're doing that with a platform for collecting and discovering art.
-
----
-
-Trail: Testing Strategies
-
-# Testing Pyramid
-
-TODO: test pyramid
-
-Notes:
-
-Testing strategies
-
----
-
-Trail: Testing Strategies
-
-# Testing Pyramid
-
-TODO: test pyramid, with costs/benefits
-
-Notes:
-
-- Lack of confidence in unit
-- More confidence in e2e, but they're harder
-- may vary depending on tech stack (rails vs js)
-
----
-
-Trail: Module
-Layout: module
-
-## More stuff!!!! Including a trail of 'Module'.
-
-### Happening here <!-- .element: class="fragment" -->
-
-#### If you know what I mean <!-- .element: class="fragment" -->
-
----
-
-Layout: steve
-Trail: Module,Section
-
-# Stuff!
-
-## Including a trail of Module & Section
-
----
-
-Trail: Module,Section,Dog
-
-# Three trails!
-
-## Module, section and dog!
-
-Notes:
-and I got some notes, too!
-
----
-
-Footer: false
-
-Trail: Module
-
-# A small trail
-
-## Module
-
-### But no footer
-
----
-
-LineNumbers: 1,3,4,5-7
-
-```
-abc
-var x = y;
-var x = y;
-var x = y;
-var x = y;
-var x = y;
-var x = y;
-var x = y;
-var x = y;
-var x = y;
-var x = y;
-```

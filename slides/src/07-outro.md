@@ -1,14 +1,3 @@
----
-
-# Outro
-
-## But no trail
-
-Note:
-
-and some outro notes
-
-go here
 
 ---
 
@@ -16,21 +5,31 @@ Footer: false
 
 <!-- .slide: data-background="/images/title.jpg" class="title" -->
 
-# **Thank you!**
+# Thank you!
 
-## Steven Hicks
+<div class="contact">
+<h3>Steven Hicks</h3>
 
+<p>
 <svg class="icon">
   <use xlink:href="#si-zocial-twitter" />
 </svg>@pepopowitz
+</p>
 
+<p>
 <svg class="icon">
   <use xlink:href="#si-zocial-email" />
 </svg>steven.j.hicks@gmail.com
+</p>
 
+<p>
 <svg class="icon">
   <use xlink:href="#si-zocial-cloudapp" />
-</svg>stevenhicks.me/cypress-for-devs-and-qa
+</svg> stevenhicks.me/cypress-for-devs-and-qa
+</p>
+
+</div>
+
 
 Notes:
 
@@ -48,7 +47,7 @@ Layout: long-list
 
 Trail: Resources, Image Credits
 
-##### [some image](some url)
+##### [Cover - Wil Stewart](https://unsplash.com/photos/UErWoQEoMrc)
 
 ---
 
