@@ -30,34 +30,34 @@ Trail: Testing Strategies, Testing Pyramid
 
 ## Why are integration/e2e tests hard?
 
-### **-** Many moving parts
+### • Many moving parts
 
 <!-- .element: class="fragment" -->
 
-### **-** Stateful
+### • State
 
 <!-- .element: class="fragment" -->
 
-### **-** Data
+### • Data
 
 <!-- .element: class="fragment" -->
 
-### **-** **Tooling**
+### **•** **Tooling**
 
 <!-- .element: class="fragment" -->
 
 Notes:
 
-parts: you're not just testing individual units anymore
+1. parts: you're not just testing individual units anymore
 
 (parts): more could go wrong
 
-state: to complete a test, you need to put the system into a specific state; state is hard to deal with
+2. state: to complete a test, you need to put the system into a specific state; state is hard to deal with
 
-data: 1. long-living data or 2. lots of fake data to set up/tear down
+3. data: 1. long-living data; 2. lots of fake data to set up/tear down; 3. mock api
 
-tooling - may vary depending on tech stack (rails vs js)
+4. tooling - may vary depending on tech stack (rails vs js)
 
-(tooling) - selenium
+focus on tooling
 
-we'll circle back to this list at the end
+but we'll also circle back to this list at the end

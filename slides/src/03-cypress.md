@@ -1,6 +1,9 @@
 ---
+Layout: module
 
-- cypress
+# Cypress
+
+Fast, easy and reliable testing for anything that runs in a browser.
 
 ---
 
@@ -27,6 +30,7 @@
     - file watching to trigger execution :)
     - debugging within chrome :)
     - not cross-browser :(
+      https://github.com/cypress-io/cypress/issues/310
 
   v javascript only
     selenium supports many languages
@@ -45,7 +49,7 @@
     time travelling
   ^ server mocking
     maybe you don't want this
-    
+
 ---
 
 * examples
