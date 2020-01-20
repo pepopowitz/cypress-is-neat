@@ -1,13 +1,13 @@
 body {
-  --brand: #2d2618;
-  --brand-context: #9c6742;
-  --brand-medium: #f29e3b;
-  --brand-module-bg: #694427;
-  --brand-light: #f4d0aa;
+  --brand: #872c13;
+  --brand-context: #bb3c2b;
+  --brand-medium: #ef6706;
+  --brand-module-bg: #420e07;
+  --brand-light: #ffce99;
   --brand-white: white;
   --brand-black: #222222;
 
-  color: var(--brand-context);
+  color: var(--brand);
 }
 
 .speaker-controls-notes .value {
