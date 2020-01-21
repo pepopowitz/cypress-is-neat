@@ -534,6 +534,7 @@ Trail: Cypress at Artsy, Challenges
 
 ---
 
+todo: fill this section in
 
 
 ---
@@ -569,18 +570,89 @@ Trail: Cypress at Artsy, Challenges
   - cypress-testing-library
 ---
 
-- verdict: Is it a replacement for selenium?
-  - No, I don't think so. Not yet.
-    - it's another TOOL
-    - it can be really useful to get you to a place where QA and engineers are working in the same tests
-    - it can give engineers more confidence in their changes
-    - but it still lacks cross-browser testing
-    - It makes it easier for engineers to write e2e tests, which can end one of two ways:
-      - no need for qa
-      - engineers & qa can share tests
-      - which you end up following says a lot about the relationships of your organization.
+Layout: module
+
+# The Verdict
 
 ---
+
+Trail: Verdict
+
+## Does Cypress replace Selenium?
+
+### **Not yet.**
+
+<!-- .element: class="fragment" -->
+
+Notes:
+
+1) javascript only
+
+2) cross-browser testing
+
+they're working on it - but it's far away from being usable in ie.
+
+---
+
+Trail: Verdict
+
+## Cypress is a tool.
+
+Notes:
+
+It's useful
+
+It can give you a lot of confidence to change your software
+
+---
+
+Trail: Verdict
+
+## Developers like to write Cypress tests.
+
+Notes:
+
+that can end one of two ways:
+
+1) no need for qa
+
+2) engineers & qa can share tests
+
+which you end up following says a lot about the relationships of your organization.
+
+---
+
+Trail: Verdict
+
+## Developers and QA can **share ownership**.
+
+Notes:
+
+This is the holy grail for me
+
+This is how we smash silos
+
+and get totally cross-functional
+
+---
+
+Layout: module
+
+# Soapbox
+
+---
+
+Trail: Soapbox
+
+todo: drawing of traditional pyramid
+
+Notes:
+
+not sure how to do this. does it belong at the beginning when we first talk about the pyramid?
+
+---
+
+
 
 - return to what makes integration/e2e testing hard
   - many moving parts
