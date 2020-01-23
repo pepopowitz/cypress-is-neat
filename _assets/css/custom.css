@@ -33,6 +33,10 @@ body {
   font-size: 0.8em;
 }
 
+.reveal a {
+  color: var(--brand-medium);
+}
+
 .reveal .inverse h1,
 .reveal .inverse h2,
 .reveal .inverse h3 {

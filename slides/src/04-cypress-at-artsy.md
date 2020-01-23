@@ -272,7 +272,7 @@ todo: semantic artwork item code with data-cypress-id
 
 Notes:
 
-Recommended by cypress
+Recommended by cypress for *all* elements (I disagree)
 
 More robust tests
 
@@ -298,20 +298,72 @@ Compounding this: our test project is in a separate codebase than UI
 
 ---
 Trail: Cypress at Artsy, Challenges, Finding Elements
+LineNumbers: 5,7,11,14
 
 ## cypress-testing-library
 github.com/testing-library/cypress-testing-library
 
 ```javascript
-todo: update according to artwork item
-cy.queryByText('Button Text').should('exist')
-cy.queryByText('Non-existing Button Text').should('not.exist')
-cy.queryByLabelText('Label text', {timeout: 7000}).should('exist')
-cy.findAllByText('Jackie Chan').click({multiple: true})
-cy.get('form').within(() => {
-  cy.findByText('Button Text').should('exist')
+describe("homepage", () => {
+  it("searches for an artist", () => {
+    cy.visit("/")
+
+    cy.findByText("Learn about and collect art")
+
+    cy.findByPlaceholderText("Search")
+      .click()
+      .type("goldsworthy")
+
+    cy.findByText("Andy Goldsworthy").click()
+
+    cy.url().should("contain", "andy-goldsworthy")
+    cy.findByText(/^Andy Goldsworthy creates outdoor sculpture/)
+  })
 })
 ```
+
+---
+Trail: Cypress at Artsy, Challenges, Finding Elements
+LineNumbers: 100
+
+## cypress-testing-library
+github.com/testing-library/cypress-testing-library
+
+```javascript
+cy.findByText("...")
+cy.findByAltText("...")
+cy.findByLabelText("...")
+cy.findByPlaceholderText("...")
+cy.findByRole("...")
+cy.findByTitle("...")
+cy.findByDataId("...")
+
+cy.findAllByText("...")
+...
+```
+
+Notes:
+
+- different ways to search for elements how the _user_ experiences your app
+- dataId - escape hatch
+- findAll...
+- different methods to fail or not fail when something's not found
+
+---
+Trail: Cypress at Artsy, Challenges
+
+## Single Sign-On (SSO)
+
+Notes:
+
+(https://github.com/cypress-io/cypress-example-recipes/blob/master/examples/logging-in__single-sign-on/cypress/integration/logging-in-single-sign-on-spec.js)
+
+todo: fill this section in
+
+- issue: only one domain can be `visit`ed
+- to use an external sign-in domain,
+  - use `cy.request` instead of `cy.visit`, and parse results manually
+  - set cookies/local storage/etc with spoofed authentication
 
 ---
 
@@ -319,6 +371,19 @@ Trail: Cypress at Artsy, Challenges
 
 ## Automation
 
----
+Notes:
 
 todo: fill this section in
+
+- should failed UI tests block a build? 
+  - testing full stack is slow
+  - our web app is three npm projects deep
+    - our api is 5 to 10 deep
+    - should _those_ be blocked by a failed UI test?
+- we settled on running every 30 minutes, non-blocking
+  - report failures in slack
+- env variables 
+  - Cypress.env()
+  - cypress.json
+  - cypress.env.json
+

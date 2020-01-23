@@ -47,22 +47,24 @@ go-time:
 
 ---
 
-TODO: me
-
-Notes:
-
-about me
-
----
-
 Footer: false
 
 <!-- .slide: data-background="/images/artsy.svg" data-background-size="750px" data-background-color="black" -->
 
 Notes:
 
+Tech Lead at Artsy
+
 NYC, MKE
 
 our mission is to expand the art market,
 
 and we're doing that with a platform for collecting and discovering art.
+
+---
+
+<!-- .slide: data-background="/images/star-student.jpg" class="title" -->
+
+Notes:
+
+

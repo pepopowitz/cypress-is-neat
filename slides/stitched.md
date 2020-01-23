@@ -62,25 +62,27 @@ go-time:
 
 ---
 
-TODO: me
-
-Notes:
-
-about me
-
----
-
 Footer: false
 
 <!-- .slide: data-background="/images/artsy.svg" data-background-size="750px" data-background-color="black" -->
 
 Notes:
 
+Tech Lead at Artsy
+
 NYC, MKE
 
 our mission is to expand the art market,
 
 and we're doing that with a platform for collecting and discovering art.
+
+---
+
+<!-- .slide: data-background="/images/star-student.jpg" class="title" -->
+
+Notes:
+
+
 ---
 
 Trail: Testing Strategies
@@ -131,15 +133,15 @@ Trail: Testing Strategies, Testing Pyramid
 
 Notes:
 
-1. parts: you're not just testing individual units anymore
+1) parts: you're not just testing individual units anymore
 
 (parts): more could go wrong
 
-2. state: to complete a test, you need to put the system into a specific state; state is hard to deal with
+2) state: to complete a test, you need to put the system into a specific state; state is hard to deal with
 
-3. data: 1. long-living data; 2. lots of fake data to set up/tear down; 3. mock api
+3) data: you need reliable data so that your tests aren't flaky. If they're flaky, they'll get turned off or deleted.
 
-4. tooling - may vary depending on tech stack (rails vs js)
+4.)tooling - may vary depending on tech stack (rails vs js)
 
 focus on tooling
 
@@ -150,6 +152,8 @@ Layout: module
 # Cypress
 
 Fast, easy and reliable testing for anything that runs in a browser.
+
+[cypress.io](https://cypress.io)
 
 ---
 
@@ -198,11 +202,289 @@ Fast, easy and reliable testing for anything that runs in a browser.
 
 ---
 
-* examples
+Trail: Cypress
 
-  - cy.visit
-  - cy.get
-  - cy.contains
+## Setup
+
+### **`npm install cypress`**
+
+Notes:
+
+that's really it.
+
+If you're not familiar with npm, it's the "node package manager", which is how modern JS projects manage their dependencies.
+
+This command is telling a js project to pull down the latest version of cypress, and add it to the project manifest so that it works on everyone's machine.
+
+The installation of cypress itself is really this simple - one line in a terminal. 
+
+Depending on your org, *using npm* might be significantly more difficult than getting cypress running.
+
+---
+
+Trail: Cypress
+
+## Example
+
+todo: gif of searching from homepage
+
+Notes:
+
+build a test for searching from homepage
+
+---
+
+Trail: Cypress, Example
+LineNumbers: 1,2
+
+## Syntax of a test
+
+```javascript
+describe("searching", () => {
+  it("searches for an artist", () => {
+
+
+
+
+
+    // your test goes here!
+
+
+
+
+
+
+  })
+})
+```
+
+Notes:
+
+- describe = "namespace"
+- fat arrow functions
+- describe can be nested
+- it = test
+
+---
+
+Trail: Cypress, Example
+LineNumbers: 3,4
+
+## cy.visit
+
+```javascript
+describe("searching", () => {
+  it("searches for an artist", () => {
+    cy.visit("/") 
+    // ^^^ browse to the root of our site
+
+
+
+
+
+
+
+
+
+
+  })
+})
+```
+
+---
+Trail: Cypress, Example
+LineNumbers: 5,6
+
+## cy.contains
+
+```javascript
+describe("searching", () => {
+  it("searches for an artist", () => {
+    cy.visit("/")
+
+    cy.contains("Learn about and collect art")
+    // ^^^ Find an element containing specific text
+
+
+
+
+
+
+
+
+
+  })
+})
+```
+
+Notes:
+
+- you'll probably want to look for more specific data than this
+- automatic waiting! (up to 5 seconds by default)
+
+---
+Trail: Cypress, Example
+LineNumbers: 7,8
+
+## cy.get
+
+```javascript
+describe("searching", () => {
+  it("searches for an artist", () => {
+    cy.visit("/")
+
+    cy.contains("Learn about and collect art")
+
+    cy.get('[placeholder="Search"]')
+    // ^^^ Find an element by CSS selector
+
+
+
+
+
+
+  })
+})
+```
+
+---
+
+Trail: Cypress, Example
+LineNumbers: 8,9
+
+## click
+
+```javascript
+describe("searching", () => {
+  it("searches for an artist", () => {
+    cy.visit("/")
+
+    cy.contains("Learn about and collect art")
+
+    cy.get('[placeholder="Search"]')
+      .click()
+      // ^^^ click on the matching element
+
+
+
+
+
+  })
+})
+```
+
+---
+Trail: Cypress, Example
+LineNumbers: 9,10
+
+## type
+
+```javascript
+describe("searching", () => {
+  it("searches for an artist", () => {
+    cy.visit("/")
+
+    cy.contains("Learn about and collect art")
+
+    cy.get('[placeholder="Search"]')
+      .click()
+      .type("goldsworthy")
+      // ^^^ type into the focused element
+
+
+
+
+  })
+})
+```
+
+---
+Trail: Cypress, Example
+LineNumbers: 11,12
+
+## cy.contains, click
+
+```javascript
+describe("searching", () => {
+  it("searches for an artist", () => {
+    cy.visit("/")
+
+    cy.contains("Learn about and collect art")
+
+    cy.get('[placeholder="Search"]')
+      .click()
+      .type("goldsworthy")
+
+    cy.contains("Andy Goldsworthy").click()
+    // ^^^ find a search result and click on it
+
+
+  })
+})
+```
+
+---
+Trail: Cypress, Example
+LineNumbers: 13,14
+
+## cy.url
+
+```javascript
+describe("searching", () => {
+  it("searches for an artist", () => {
+    cy.visit("/")
+
+    cy.contains("Learn about and collect art")
+
+    cy.get('[placeholder="Search"]')
+      .click()
+      .type("goldsworthy")
+
+    cy.contains("Andy Goldsworthy").click()
+
+    cy.url().should("contain", "andy-goldsworthy")
+    // ^^^ verify the navigated URL
+  })
+})
+```
+
+---
+Trail: Cypress, Example
+LineNumbers: 14
+
+## cy.contains
+
+```javascript
+describe("searching", () => {
+  it("searches for an artist", () => {
+    cy.visit("/")
+
+    cy.contains("Learn about and collect art")
+
+    cy.get('[placeholder="Search"]')
+      .click()
+      .type("goldsworthy")
+
+    cy.contains("Andy Goldsworthy").click()
+
+    cy.url().should("contain", "andy-goldsworthy")
+    cy.contains("Andy Goldsworthy creates outdoor sculpture")
+  })
+})
+```
+
+---
+Trail: Cypress, Example
+
+# Demo!
+
+Notes:
+
+---
+
+Trail: Cypress, Example
+
+## commands (cy.customName)
 
 ---
 
@@ -485,7 +767,7 @@ todo: semantic artwork item code with data-cypress-id
 
 Notes:
 
-Recommended by cypress
+Recommended by cypress for *all* elements (I disagree)
 
 More robust tests
 
@@ -511,20 +793,72 @@ Compounding this: our test project is in a separate codebase than UI
 
 ---
 Trail: Cypress at Artsy, Challenges, Finding Elements
+LineNumbers: 5,7,11,14
 
 ## cypress-testing-library
 github.com/testing-library/cypress-testing-library
 
 ```javascript
-todo: update according to artwork item
-cy.queryByText('Button Text').should('exist')
-cy.queryByText('Non-existing Button Text').should('not.exist')
-cy.queryByLabelText('Label text', {timeout: 7000}).should('exist')
-cy.findAllByText('Jackie Chan').click({multiple: true})
-cy.get('form').within(() => {
-  cy.findByText('Button Text').should('exist')
+describe("homepage", () => {
+  it("searches for an artist", () => {
+    cy.visit("/")
+
+    cy.findByText("Learn about and collect art")
+
+    cy.findByPlaceholderText("Search")
+      .click()
+      .type("goldsworthy")
+
+    cy.findByText("Andy Goldsworthy").click()
+
+    cy.url().should("contain", "andy-goldsworthy")
+    cy.findByText(/^Andy Goldsworthy creates outdoor sculpture/)
+  })
 })
 ```
+
+---
+Trail: Cypress at Artsy, Challenges, Finding Elements
+LineNumbers: 100
+
+## cypress-testing-library
+github.com/testing-library/cypress-testing-library
+
+```javascript
+cy.findByText("...")
+cy.findByAltText("...")
+cy.findByLabelText("...")
+cy.findByPlaceholderText("...")
+cy.findByRole("...")
+cy.findByTitle("...")
+cy.findByDataId("...")
+
+cy.findAllByText("...")
+...
+```
+
+Notes:
+
+- different ways to search for elements how the _user_ experiences your app
+- dataId - escape hatch
+- findAll...
+- different methods to fail or not fail when something's not found
+
+---
+Trail: Cypress at Artsy, Challenges
+
+## Single Sign-On (SSO)
+
+Notes:
+
+(https://github.com/cypress-io/cypress-example-recipes/blob/master/examples/logging-in__single-sign-on/cypress/integration/logging-in-single-sign-on-spec.js)
+
+todo: fill this section in
+
+- issue: only one domain can be `visit`ed
+- to use an external sign-in domain,
+  - use `cy.request` instead of `cy.visit`, and parse results manually
+  - set cookies/local storage/etc with spoofed authentication
 
 ---
 
@@ -532,42 +866,22 @@ Trail: Cypress at Artsy, Challenges
 
 ## Automation
 
----
+Notes:
 
 todo: fill this section in
 
+- should failed UI tests block a build? 
+  - testing full stack is slow
+  - our web app is three npm projects deep
+    - our api is 5 to 10 deep
+    - should _those_ be blocked by a failed UI test?
+- we settled on running every 30 minutes, non-blocking
+  - report failures in slack
+- env variables 
+  - Cypress.env()
+  - cypress.json
+  - cypress.env.json
 
----
-
-  - when writing a test, you're recording steps...switching on presence of specific elements isn't as obvious as you'd think it would be
-    - https://applitools.com/blog/cypress-vs-selenium-webdriver-better-or-just-different
-      - search for "bizarre execution"
-
-
----
-
-  - How to keep tests from breaking often
-
-* Bad tests:
-
-  - flaky/flappy
-  - break often
-
-  
----
-
-  - same language we use for development
-    - I don't know that I'd recommend cypress to a team that wasn't familiar with JS
-      - having said that, it's not like you're doing COMPLICATED js. But the learning curve is a consideration
-
----
-
-  - Don't mock things
-    - or mock things, depending on your goals
-
----
-
-  - cypress-testing-library
 ---
 
 Layout: module
@@ -608,17 +922,35 @@ It can give you a lot of confidence to change your software
 
 Trail: Verdict
 
+## Cypress is young.
+
+Notes:
+
+It has a lot of growing to do
+
+But it shows a ton of promise
+
+---
+
+Trail: Verdict
+
 ## Developers like to write Cypress tests.
 
 Notes:
 
-that can end one of two ways:
+- we write JS - same language in app & tests
+
+- maybe not for a team that wasn't familiar with JS
+
+- it's not like you're doing COMPLICATED js. But the learning curve is a consideration
+
+developers enjoying writing end-to-end tests can end one of two ways
+
+which you end up following says a lot about the relationships of your organization.
 
 1) no need for qa
 
-2) engineers & qa can share tests
-
-which you end up following says a lot about the relationships of your organization.
+2) ...
 
 ---
 

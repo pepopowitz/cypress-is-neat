@@ -38,17 +38,35 @@ It can give you a lot of confidence to change your software
 
 Trail: Verdict
 
+## Cypress is young.
+
+Notes:
+
+It has a lot of growing to do
+
+But it shows a ton of promise
+
+---
+
+Trail: Verdict
+
 ## Developers like to write Cypress tests.
 
 Notes:
 
-that can end one of two ways:
+- we write JS - same language in app & tests
+
+- maybe not for a team that wasn't familiar with JS
+
+- it's not like you're doing COMPLICATED js. But the learning curve is a consideration
+
+developers enjoying writing end-to-end tests can end one of two ways
+
+which you end up following says a lot about the relationships of your organization.
 
 1) no need for qa
 
-2) engineers & qa can share tests
-
-which you end up following says a lot about the relationships of your organization.
+2) ...
 
 ---
 
