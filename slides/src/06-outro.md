@@ -55,4 +55,4 @@ Layout: long-list
 
 Trail: Resources, Further Reading
 
-##### [some article](some url)
+##### [Cross-browser GitHub issue](https://github.com/cypress-io/cypress/issues/310)

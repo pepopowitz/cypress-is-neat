@@ -39,10 +39,12 @@ Notes:
 pre-game:
 
 - STICKERS!
+- dad's root beer
 
 go-time:
 
 - thanks to organizers
+- thanks to centare
 - thanks to you
 
 ---

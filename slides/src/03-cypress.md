@@ -9,48 +9,173 @@ Fast, easy and reliable testing for anything that runs in a browser.
 
 ---
 
-  - architecture
-    - built on mocha
-    - something about chrome/electron
-      - the browser itself is executing your tests
-        - which makes it faster than selenium
-        - tight feedback loop
-        - allows you to easily intercept/mock network activity
-    - NOT built on selenium
+todo: gif of tests running
+
+Notes:
+
+what it looks like
+
+We'll look at an actual running test later
 
 ---
 
-  - ide
-    - time traveling
+Trail: Cypress
+
+> All-in-one testing framework, assertion library, with mocking and stubbing, all without Selenium.
+
+[cypress.io](https://cypress.io)
 
 ---
 
-  - vs selenium
-    - > Most end-to-end testing tools are Selenium-based, which is why they all share the same problems. To make Cypress different, we built a new architecture from the ground up. Whereas Selenium executes remote commands through the network, Cypress runs in the same run-loop as your application.
-      - https://www.cypress.io/how-it-works/
-    - automatically waits :)
-    - file watching to trigger execution :)
-    - debugging within chrome :)
-    - not cross-browser :(
-      https://github.com/cypress-io/cypress/issues/310
+Trail: Cypress
 
-  v javascript only
-    selenium supports many languages
-  v chrome only
-    selenium supports many
-  ^ quick setup
-  ^ runs directly in the browser
-    selenium has layers between your code & the browser
-    you can inspect things in your console!
-  ^ fast
-    fewer layers
-  ^ reliable
-    fewer layers
-    less waiting - it automatically waits for you.
-  ^ interactive
-    time travelling
-  ^ server mocking
-    maybe you don't want this
+> Cypress focuses on doing end-to-end testing REALLY well.
+
+[cypress.io](https://cypress.io)
+
+Notes:
+
+---
+
+Trail: Cypress, Architecture
+
+## It's not Selenium
+
+Notes:
+
+many e2e tools _are_, under the covers
+
+---
+
+Trail: Cypress, Architecture
+
+todo: drawing of selenium architecture
+
+---
+
+Trail: Cypress, Architecture
+
+todo: drawing of cypress architecture
+
+Notes:
+
+executed in the same run loop as your app
+
+so it can interact with your app & all events in your app, 
+
+including all network activity
+
+also makes it **faster** because the communication is more direct
+
+---
+
+Trail: Cypress, Architecture
+
+## It's JavaScript
+### and so are the tests you write
+
+Notes:
+
+selling point? not sure.
+
+Selenium supports many languages
+
+---
+
+Trail: Cypress, Architecture
+
+## It's Chrome only
+### for now...
+
+Notes:
+
+let's get that out of the way
+
+this might be a dealbreaker for you
+
+but it might also mean you can use Cypress for most tests, and another tool for cross-browser testing
+
+---
+
+Trail: Cypress, Features
+
+## Tests automatically wait
+
+### so they're more **reliable**
+
+Notes:
+
+up to 4.5 seconds
+
+if you look for an element and it's not there because React is still rendering,
+
+you have up to 4.5 seconds before the test fails
+
+...
+
+flake!
+
+anyone experience e2e tests that fail because of timing issues?
+
+---
+
+Trail: Cypress, Features
+
+## Tests run when files update
+
+### tightening your **feedback loop**
+
+Notes:
+
+When you're running the tests locally, 
+
+---
+
+Trail: Cypress, Features
+
+## You can time travel through tests
+
+### for **easier debugging**
+
+Notes: 
+
+successful or failing
+
+Cypress logs every event along the way
+
+...
+
+debug using the chrome dev tools at any point in your test
+
+---
+
+Trail: Cypress, Features
+
+## Cypress runs in your browser
+
+### making your tests **fast**
+
+Notes:
+
+relatively. it's still e2e, so db, network latency, etc.
+
+- fewer layers between your code & the browser
+
+---
+
+Trail: Cypress, Features
+
+## You have access to all network activity
+
+### so you can **inspect** it or **mock** it
+
+Notes:
+
+or do whatever you want with it
+
+maybe you don't want to do this; 
+
+we'll talk more about the tradeoffs of mocking.
 
 ---
 
@@ -337,11 +462,3 @@ Notes:
 Trail: Cypress, Example
 
 ## commands (cy.customName)
-
----
-
-* mocking
-
-  - you can mock network responses easily
-    - https://docs.cypress.io/api/commands/server.html#Syntax
-    - but you probably don't want to - that just gives you a less reliable test.
