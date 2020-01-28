@@ -32,6 +32,10 @@ body {
 .reveal h2 code {
   font-size: 0.8em;
 }
+.reveal pre code {
+  max-height: 500px;
+}
+
 
 .reveal a {
   color: var(--brand-medium);

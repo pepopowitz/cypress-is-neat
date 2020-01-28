@@ -80,40 +80,50 @@ and we're doing that with a platform for collecting and discovering art.
 
 ---
 
+Footer: false
+
 <!-- .slide: data-background="/images/star-student.jpg" class="title" -->
 
 Notes:
 
 
 ---
+<!-- .slide: data-background="/images/testing-pyramid.jpg" -->
 
 Trail: Testing Strategies
-
-## Testing Pyramid
-
-TODO: test pyramid
 
 Notes:
 
 Testing strategies
 
+- Mike Cohn, Succeeding with Agile, 2009
+- opinions over shape, names of tests, validity, etc
+- but it's still a useful metaphor to talk about tradeoffs in testing
+- explain types of tests
+
+
 ---
+<!-- .slide: data-background="/images/testing-pyramid-tradeoffs.jpg" -->
 
 Trail: Testing Strategies
 
-## Testing Pyramid
-
-TODO: test pyramid, with costs/benefits
-
 Notes:
 
-- Lack of confidence in unit
-- More confidence in e2e, but they're harder
+it's a pyramid because there are tradeoffs
+
+1) cost: to write & maintain
+2) speed
+3) reliability: how often does this test fail or break?
+4) confidence: how confident about your app?
+
+- lower in the pyramid is better for first 3
+- higher in the pyramid is better for last 1
+
 
 ---
 
 Layout: list
-Trail: Testing Strategies, Testing Pyramid
+Trail: Testing Strategies
 
 ## Why are integration/e2e tests hard?
 
@@ -143,7 +153,7 @@ Notes:
 
 3) data: you need reliable data so that your tests aren't flaky. If they're flaky, they'll get turned off or deleted.
 
-4.)tooling - may vary depending on tech stack (rails vs js)
+4) tooling - may vary depending on tech stack (rails vs js)
 
 focus on tooling
 
@@ -185,6 +195,8 @@ Trail: Cypress
 
 Notes:
 
+not unit, not integration
+ 
 ---
 
 Trail: Cypress, Architecture
@@ -193,19 +205,20 @@ Trail: Cypress, Architecture
 
 Notes:
 
+kind of a joke but also not really
+
 many e2e tools _are_, under the covers
 
 ---
+<!-- .slide: data-background="/images/architecture-selenium.jpg" -->
 
-Trail: Cypress, Architecture
+Trail: Cypress, Architecture, Selenium
 
-todo: drawing of selenium architecture
 
 ---
+<!-- .slide: data-background="/images/architecture-cypress.jpg" -->
 
-Trail: Cypress, Architecture
-
-todo: drawing of cypress architecture
+Trail: Cypress, Architecture, Cypress
 
 Notes:
 
@@ -374,7 +387,7 @@ describe("searching", () => {
 
 
 
-    // your test goes here!
+    // your test goes in here!
 
 
 
@@ -431,7 +444,6 @@ describe("searching", () => {
 
     cy.contains("Learn about and collect art")
     // ^^^ Find an element containing specific text
-
 
 
 
@@ -606,12 +618,6 @@ Trail: Cypress, Example
 # Demo!
 
 Notes:
-
----
-
-Trail: Cypress, Example
-
-## commands (cy.customName)
 ---
 
 Layout: module
@@ -621,18 +627,153 @@ Layout: module
 ---
 Trail: Cypress at Artsy
 
-- artsy homepage
+## Smoke Tests
 
 Notes:
 
-- lots of ways for a collector to explore
+We started with some real simple POC tests
+
+to prove we could get value from cypress
+
+and that meant writing some smoke tests
+
+to make sure the site was up after each deployment.
+
+---
+Trail: Cypress at Artsy, Smoke Tests
+
+todo: gif of artwork page
+
+Notes:
+
+this is our artwork page
+
+---
+LineNumbers: 3,4,5
+
+Trail: Cypress at Artsy, Smoke Tests
+
+```javascript
+describe("Artwork", () => {
+  it("/artwork/:id", () => {
+    cy.visit(`artwork/andy-goldsworthy-ammonite`)
+    cy.get("h1").should("contain", "Andy Goldsworthy")
+    cy.get("h2").should("contain", "Ammonite")
+  })
+})
+```
+
+Notes:
+
+this is what our test looked like. 
+
+Reeally simple.
+
+---
+
+Trail: Cypress at Artsy, Smoke Tests
+
+todo: gif of artwork page test in cypress
+
+<div class="myvideo">
+   <video style="display:block; width:100%; height:auto;" data-autoplay>
+       <source src="/images/testing.webm"  type="video/webm"  />
+   </video>
+</div>
+
+Notes:
+
+and this is what it looks like for cypress to run the test
 
 ---
 Trail: Cypress at Artsy
 
-- artsy artwork grid
+## Critical Flows
 
 Notes:
+
+and then we moved on to testing critical flows of our app
+
+---
+Trail: Cypress at Artsy, Critical Flows
+
+todo: gif of logging in
+
+Notes:
+
+like logging in
+
+---
+Trail: Cypress at Artsy, Critical Flows
+LineNumbers: 100
+
+```javascript
+it("logs in admin user", () => {
+  // 1. visit home
+  // 2. pop login modal
+  // 3. log in admin user
+  // 4. verify logged in
+})
+```
+
+Notes:
+
+kind of a lot going on - broken down into multiple slides
+
+---
+Trail: Cypress at Artsy, Critical Flows
+LineNumbers: 3,6,7,8,9
+
+```javascript
+it("logs in admin user", () => {
+  // 1. visit home
+  cy.visit("/")
+
+  // 2. pop login modal
+  cy.get("header")
+    .find("button")
+    .contains("Log in")
+    .click()
+
+  // 3. log in admin user
+  // 4. verify logged in
+})
+```
+
+
+---
+Trail: Cypress at Artsy, Critical Flows
+LineNumbers: 6-14,17
+
+```javascript
+it("logs in admin user", () => {
+  // 1. visit home
+  // 2. pop login modal
+
+  // 3. log in admin user
+  cy.get("input[type=email]").type(
+    Cypress.env("ADMIN_USER"))
+  cy.get("input[type=password]").type(
+    Cypress.env("ADMIN_PASSWORD"), {
+      log: false,
+    })
+  cy.get("button")
+    .contains("Log in")
+    .click()
+
+  // 4. verify logged in
+  cy.get("header").find("a[href='/works-for-you']")
+})
+```
+
+---
+Trail: Cypress at Artsy, Critical Flows
+
+todo: gif of artwork grid
+
+Notes:
+
+and finding art
 
 - filter by buy now
 - filter by medium and a few other options 
@@ -641,59 +782,68 @@ Notes:
 It's important to us that our collectors can find artwork that moves them.
 
 ---
+LineNumbers: 100
+Trail: Cypress at Artsy, Critical Flows, Finding Art
 
-Trail: Cypress at Artsy
+```javascript
+it("filters by medium", () => {
+  cy.visit("/collect")
 
-- artsy artwork to buy now
+  cy.contains("Ways to buy")
+
+  cy.get("input[type=radio]").contains("Painting").click()
+
+  cy.url().should("contain", "/collect/painting")
+})
+```
+
+---
+
+Trail: Cypress at Artsy, Critical Flows
+
+todo: gif of buying art
 
 Notes: 
 
-when they find something they love, we want to make sure they can...
+when they find something they love, we want to make sure they can
+
+buy art
 
 - negotiate with the gallery
 - make an offer
 - buy it immediately
 
 ---
-Trail: Cypress at Artsy
+LineNumbers: 100
 
-# Smoke Tests
+Trail: Cypress at Artsy, Critical Flows, Buying Art
 
-todo: gif of artwork page test
+```javascript
+it("can buy an individual work", () => {
+  // 1. log in as partner
+  // 2. upload new artwork for sale
+  // 3. log in as collector
+  // 4. buy artwork
+  // 5. verify artwork is sold
+})
+```
 
----
-Trail: Cypress at Artsy, Smoke Tests
+Notes: 
 
-todo: code sample from artwork page test
+no code - too much!
 
----
-Trail: Cypress at Artsy
+you start to smell the aroma of one of our biggest challenges so far
 
-# Login
+how to deal with data & state?
 
-todo: gif of login test
+We're chaining together a series of actions for this test
 
----
-Trail: Cypress at Artsy, Login
-
-todo: code sample from login test
-
----
-Trail: Cypress at Artsy
-
-# Purchase
-
-todo: gif of buy artwork test
+And that has tradeoffs
 
 ---
 Trail: Cypress at Artsy
 
-todo: code sample from buy artwork test
-
----
-Trail: Cypress at Artsy
-
-## Learnings
+## Challenges
 
 ---
 Trail: Cypress at Artsy, Challenges
@@ -730,7 +880,9 @@ Notes:
 
 1) one of our goals was to prevent "breaking the site" & without testing entire stack we couldn't be sure
 
-2) 
+(confidence)
+
+2) (not much control)
 
 3) fake users: 
 3a) have to store them in the real db
@@ -749,9 +901,9 @@ Layout: list
 
 Notes:
 
-1)
+1) confidence
 
-2)
+2) control
 
 3) We don't have one source of data; we have five to ten. Mongodb, postgres, elastic
 
@@ -768,7 +920,11 @@ Layout: list
 
 Notes:
 
+1) 
+2) control
 3) entire stack: and you might say it's leaving out the most important part 
+
+(less confidence)
 
 ---
 
@@ -781,6 +937,11 @@ Layout: list
 
 Notes:
 
+which did we choose?
+
+which would YOU choose?
+
+point: it depends on context & circumstances!
 
 ---
 
@@ -811,6 +972,8 @@ Trail: Cypress at Artsy, Challenges
 
 ## Finding Elements
 
+Notes:
+
 ---
 
 Trail: Cypress at Artsy, Challenges, Finding Elements
@@ -837,8 +1000,12 @@ Layout: list
 
 Notes:
 
+0) key to meaningful tests that last
+
 1) Text: that they can read on the screen
 1a) target buttons and links with the text they see
+
+...
 
 In general, the closer you are to testing your app the way a real user uses it, the more reliable & resilient your tests are going to be.
 
@@ -874,23 +1041,9 @@ and it works.
 
 until it doesn't, because a dev removed this class.
 
----
+...
 
-Trail: Cypress at Artsy, Challenges, Finding Elements
-
-## **data-** Attributes
-
-```jsx
-todo: semantic artwork item code with data-cypress-id
-```
-
-Notes:
-
-Recommended by cypress for *all* elements (I disagree)
-
-More robust tests
-
-At Artsy, we don't even write semantic markup
+At Artsy, we don't write semantic markup
 
 ---
 
@@ -909,6 +1062,23 @@ Styled components: more stable styling
 We have no semantics in our markup
 
 Compounding this: our test project is in a separate codebase than UI
+
+---
+
+Trail: Cypress at Artsy, Challenges, Finding Elements
+
+## **data-** Attributes
+
+```jsx
+todo: semantic artwork item code with data-cypress-id
+```
+
+Notes:
+
+Recommended by cypress for *all* elements (I disagree)
+
+More robust tests
+
 
 ---
 Trail: Cypress at Artsy, Challenges, Finding Elements
@@ -935,6 +1105,14 @@ describe("homepage", () => {
   })
 })
 ```
+
+Notes:
+
+a tool that enforces finding elements by what the user sees
+
+this is a rewrite of our example test
+
+findBy....
 
 ---
 Trail: Cypress at Artsy, Challenges, Finding Elements
@@ -966,40 +1144,69 @@ Notes:
 ---
 Trail: Cypress at Artsy, Challenges
 
-## Single Sign-On (SSO)
+## Limitations
+
+[https://docs.cypress.io/guides/references/trade-offs.html](https://docs.cypress.io/guides/references/trade-offs.html)
 
 Notes:
 
-(https://github.com/cypress-io/cypress-example-recipes/blob/master/examples/logging-in__single-sign-on/cypress/integration/logging-in-single-sign-on-spec.js)
+There are acknowledged limitations of Cypress
 
-todo: fill this section in
+and a few of them have affected us in our short time of using it
 
-- issue: only one domain can be `visit`ed
-- to use an external sign-in domain,
-  - use `cy.request` instead of `cy.visit`, and parse results manually
-  - set cookies/local storage/etc with spoofed authentication
+url - don't write it down. go to my slides and click on the link.
 
 ---
 
-Trail: Cypress at Artsy, Challenges
+Trail: Cypress at Artsy, Challenges, Limitations
 
-## Automation
+> There will never be support for **multiple browser tabs**.
+
+[cypress.io](https://docs.cypress.io/guides/references/trade-offs.html)
 
 Notes:
 
-todo: fill this section in
+tests for a CMS tool that pops the page you're editing in another tab
 
-- should failed UI tests block a build? 
-  - testing full stack is slow
-  - our web app is three npm projects deep
-    - our api is 5 to 10 deep
-    - should _those_ be blocked by a failed UI test?
-- we settled on running every 30 minutes, non-blocking
-  - report failures in slack
-- env variables 
-  - Cypress.env()
-  - cypress.json
-  - cypress.env.json
+and you want to inspect the value that's rendered there
+
+it's not as simple as `cy.contains()`
+
+workaround: request page programmatically & inspect contents 
+
+---
+
+Trail: Cypress at Artsy, Challenges, Limitations
+
+> You cannot use Cypress to drive **two browsers at the same time**.
+
+[cypress.io](https://docs.cypress.io/guides/references/trade-offs.html)
+
+Notes:
+
+We've talked about doing some complex auction bidding scenarios between multiple bidders
+
+workarounds described at url
+
+---
+
+Trail: Cypress at Artsy, Challenges, Limitations
+
+> Each test is bound to a **single origin**.
+
+[cypress.io](https://docs.cypress.io/guides/references/trade-offs.html)
+
+Notes:
+
+SSO
+
+if you're using a 3rd party auth provider, 
+
+you'll need to do some trickery to visit that second origin
+
+(request page programmatically & inspect response)
+
+(me: set cookies/local storage with spoofed auth)
 
 ---
 
@@ -1057,12 +1264,6 @@ Trail: Verdict
 
 Notes:
 
-- we write JS - same language in app & tests
-
-- maybe not for a team that wasn't familiar with JS
-
-- it's not like you're doing COMPLICATED js. But the learning curve is a consideration
-
 developers enjoying writing end-to-end tests can end one of two ways
 
 which you end up following says a lot about the relationships of your organization.
@@ -1081,55 +1282,15 @@ Notes:
 
 This is the holy grail for me
 
-This is how we smash silos
+historically there's been a wall that devs chuck things over for qa to look at
+
+but if we are co-owning the codebase
+
+it's a chance for us to smash silos
 
 and get totally cross-functional
 
----
-
-Layout: module
-
-# Soapbox
-
----
-
-Trail: Soapbox
-
-todo: drawing of traditional pyramid
-
-Notes:
-
-not sure how to do this. does it belong at the beginning when we first talk about the pyramid?
-
----
-
-
-
-- return to what makes integration/e2e testing hard
-  - many moving parts
-  - stateful
-  - data
-    - long-living data
-    - or lots of fake data to set up/tear down
-  - tooling
-
-  - the pyramid is wrong
-    - with tooling like cypress & even selenium,
-      - it's not about unit vs integration vs e2e
-
----
-
-    - line between independent & dependent tests
-      - this is where it goes from hard to easy
-      - and it's not because of what types of tests they are
-      - it's because of the first three things listed above
-        - moving parts, state, data
-    - and those things mean our tests are dependent on things outside of themselves
-
----
-
-  - independent vs dependent
-
+and help each other out more
 
 ---
 
@@ -1182,6 +1343,8 @@ Trail: Resources, Image Credits
 ##### [Cover - Wil Stewart](https://unsplash.com/photos/UErWoQEoMrc)
 
 ---
+
+Wrapper: double-wide
 
 Layout: long-list
 

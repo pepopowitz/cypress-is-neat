@@ -65,6 +65,8 @@ and we're doing that with a platform for collecting and discovering art.
 
 ---
 
+Footer: false
+
 <!-- .slide: data-background="/images/star-student.jpg" class="title" -->
 
 Notes:

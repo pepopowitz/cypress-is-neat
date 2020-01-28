@@ -51,6 +51,8 @@ Trail: Resources, Image Credits
 
 ---
 
+Wrapper: double-wide
+
 Layout: long-list
 
 Trail: Resources, Further Reading

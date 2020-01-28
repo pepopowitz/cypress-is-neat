@@ -35,6 +35,8 @@ Trail: Cypress
 
 Notes:
 
+not unit, not integration
+ 
 ---
 
 Trail: Cypress, Architecture
@@ -43,19 +45,20 @@ Trail: Cypress, Architecture
 
 Notes:
 
+kind of a joke but also not really
+
 many e2e tools _are_, under the covers
 
 ---
+<!-- .slide: data-background="/images/architecture-selenium.jpg" -->
 
-Trail: Cypress, Architecture
+Trail: Cypress, Architecture, Selenium
 
-todo: drawing of selenium architecture
 
 ---
+<!-- .slide: data-background="/images/architecture-cypress.jpg" -->
 
-Trail: Cypress, Architecture
-
-todo: drawing of cypress architecture
+Trail: Cypress, Architecture, Cypress
 
 Notes:
 
@@ -224,7 +227,7 @@ describe("searching", () => {
 
 
 
-    // your test goes here!
+    // your test goes in here!
 
 
 
@@ -281,7 +284,6 @@ describe("searching", () => {
 
     cy.contains("Learn about and collect art")
     // ^^^ Find an element containing specific text
-
 
 
 
@@ -456,9 +458,3 @@ Trail: Cypress, Example
 # Demo!
 
 Notes:
-
----
-
-Trail: Cypress, Example
-
-## commands (cy.customName)
