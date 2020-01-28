@@ -1082,28 +1082,17 @@ More robust tests
 
 ---
 Trail: Cypress at Artsy, Challenges, Finding Elements
-LineNumbers: 5,7,11,14
+LineNumbers: 2,5
 
 ## cypress-testing-library
 github.com/testing-library/cypress-testing-library
 
 ```javascript
-describe("homepage", () => {
-  it("searches for an artist", () => {
-    cy.visit("/")
+cy.contains("Learn about and collect art")
+cy.findByText("Learn about and collect art")
 
-    cy.findByText("Learn about and collect art")
-
-    cy.findByPlaceholderText("Search")
-      .click()
-      .type("goldsworthy")
-
-    cy.findByText("Andy Goldsworthy").click()
-
-    cy.url().should("contain", "andy-goldsworthy")
-    cy.findByText(/^Andy Goldsworthy creates outdoor sculpture/)
-  })
-})
+cy.get('[placeholder="Search"]')
+cy.findByPlaceholderText("Search")
 ```
 
 Notes:
