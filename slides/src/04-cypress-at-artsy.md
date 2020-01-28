@@ -75,9 +75,8 @@ Notes:
 and then we moved on to testing critical flows of our app
 
 ---
-Trail: Cypress at Artsy, Critical Flows
-
-todo: gif of logging in
+Footer: false
+<!-- .slide: data-background-video="/images/logging-in.webm" data-background-size="contain" -->
 
 Notes:
 
@@ -147,9 +146,8 @@ it("logs in admin user", () => {
 ```
 
 ---
-Trail: Cypress at Artsy, Critical Flows
-
-todo: gif of artwork grid
+Footer: false
+<!-- .slide: data-background-video="/images/finding-art.webm" data-background-size="contain" -->
 
 Notes:
 
@@ -178,10 +176,8 @@ it("filters by medium", () => {
 ```
 
 ---
-
-Trail: Cypress at Artsy, Critical Flows
-
-todo: gif of buying art
+Footer: false
+<!-- .slide: data-background-video="/images/buying-art.webm" data-background-size="contain" -->
 
 Notes: 
 

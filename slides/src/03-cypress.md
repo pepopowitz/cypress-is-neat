@@ -201,16 +201,16 @@ The installation of cypress itself is really this simple - one line in a termina
 Depending on your org, *using npm* might be significantly more difficult than getting cypress running.
 
 ---
-
-Trail: Cypress
-
-## Example
-
-todo: gif of searching from homepage
+Footer: false
+<!-- .slide: data-background-video="/images/search-homepage.webm" data-background-size="contain" -->
 
 Notes:
 
-build a test for searching from homepage
+artsy homepage
+
+searchbox - search for artists you love
+
+let's build a cypress test for it
 
 ---
 
