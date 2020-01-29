@@ -144,3 +144,13 @@ not sure how to do this. does it belong at the beginning when we first talk abou
 Trail: Cypress, Example
 
 ## commands (cy.customName)
+
+---
+
+Footer: false
+
+<!-- .slide: data-background="/images/star-student.jpg" class="title" -->
+
+Notes:
+
+star student

@@ -40,6 +40,7 @@ pre-game:
 
 - STICKERS!
 - dad's root beer
+- javascript
 
 go-time:
 
@@ -59,16 +60,8 @@ Tech Lead at Artsy
 
 NYC, MKE
 
-our mission is to expand the art market,
+our mission is to expand the art market, 
+
+so that everyone can be moved by art daily.
 
 and we're doing that with a platform for collecting and discovering art.
-
----
-
-Footer: false
-
-<!-- .slide: data-background="/images/star-student.jpg" class="title" -->
-
-Notes:
-
-

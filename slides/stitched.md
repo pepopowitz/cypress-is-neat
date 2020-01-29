@@ -55,6 +55,7 @@ pre-game:
 
 - STICKERS!
 - dad's root beer
+- javascript
 
 go-time:
 
@@ -74,19 +75,11 @@ Tech Lead at Artsy
 
 NYC, MKE
 
-our mission is to expand the art market,
+our mission is to expand the art market, 
+
+so that everyone can be moved by art daily.
 
 and we're doing that with a platform for collecting and discovering art.
-
----
-
-Footer: false
-
-<!-- .slide: data-background="/images/star-student.jpg" class="title" -->
-
-Notes:
-
-
 ---
 <!-- .slide: data-background="/images/testing-pyramid.jpg" -->
 
@@ -705,7 +698,7 @@ Footer: false
 
 
 ---
-Trail: Cypress at Artsy, Critical Flows
+Trail: Cypress at Artsy, Critical Flows, Logging In
 LineNumbers: 100
 
 ```javascript
@@ -722,7 +715,7 @@ Notes:
 kind of a lot going on - broken down into multiple slides
 
 ---
-Trail: Cypress at Artsy, Critical Flows
+Trail: Cypress at Artsy, Critical Flows, Logging In
 LineNumbers: 3,6,7,8,9
 
 ```javascript
@@ -743,7 +736,7 @@ it("logs in admin user", () => {
 
 
 ---
-Trail: Cypress at Artsy, Critical Flows
+Trail: Cypress at Artsy, Critical Flows, Logging In
 LineNumbers: 6-14,17
 
 ```javascript
@@ -752,10 +745,10 @@ it("logs in admin user", () => {
   // 2. pop login modal
 
   // 3. log in admin user
-  cy.get("input[type=email]").type(
-    Cypress.env("ADMIN_USER"))
-  cy.get("input[type=password]").type(
-    Cypress.env("ADMIN_PASSWORD"), {
+  cy.get("input[type=email]")
+    .type(Cypress.env("ADMIN_USER"))
+  cy.get("input[type=password]")
+    .type(Cypress.env("ADMIN_PASSWORD"), {
       log: false,
     })
   cy.get("button")
@@ -893,13 +886,15 @@ Before we even started, we wanted to figure out how we would approach the data i
 Trail: Cypress at Artsy, Challenges, Data
 Layout: list
 
-## 1. Use a real database
+## 1. Use a live database
 
 ### 👍🏼 Tests the entire stack
 ### 👎🏼 Depends on live data not changing
 ### 👎🏼 Requires fake users
 
 Notes:
+
+live db - from staging or production site
 
 1) one of our goals was to prevent "breaking the site" & without testing entire stack we couldn't be sure
 
@@ -908,7 +903,7 @@ Notes:
 2) (not much control)
 
 3) fake users: 
-3a) have to store them in the real db
+3a) have to store them in the live db
 3b) have to store _creds_ somewhere the tests can access
 
 ---
@@ -954,7 +949,7 @@ Notes:
 Trail: Cypress at Artsy, Challenges, Data
 Layout: list
 
-## 1. Use a real database
+## 1. Use a live database
 ## 2. Use a test database
 ## 3. Use no database (mock data calls)
 
@@ -971,7 +966,7 @@ point: it depends on context & circumstances!
 Trail: Cypress at Artsy, Challenges, Data
 Layout: list
 
-## **1. Use a real database** 👈🏼
+## **1. Use a live database** 👈🏼
 ## 2. Use a test database
 ## 3. Use no database (mock data calls)
 
