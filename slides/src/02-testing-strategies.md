@@ -8,9 +8,9 @@ Notes:
 Testing strategies
 
 - Mike Cohn, Succeeding with Agile, 2009
+- explain types of tests
 - opinions over shape, names of tests, validity, etc
 - but it's still a useful metaphor to talk about tradeoffs in testing
-- explain types of tests
 
 
 ---
@@ -27,16 +27,19 @@ it's a pyramid because there are tradeoffs
 3) reliability: how often does this test fail or break?
 4) confidence: how confident about your app?
 
-- lower in the pyramid is better for first 3
-- higher in the pyramid is better for last 1
+- 3 on the left have better outcomes lower in the pyramid
+- 1 on the right has better outcomes higher in the pyramid
 
+we'll talk about the top of they pyramid today, e2e
+
+and I'm especially interested in addressing one question:
 
 ---
 
 Layout: list
 Trail: Testing Strategies
 
-## Why are integration/e2e tests hard?
+## Why are end-to-end tests hard?
 
 ### • Many moving parts
 
@@ -55,6 +58,8 @@ Trail: Testing Strategies
 <!-- .element: class="fragment" -->
 
 Notes:
+
+0) those 3 left columns all have poorer outcomes for e2e. why?
 
 1) parts: you're not just testing individual units anymore
 

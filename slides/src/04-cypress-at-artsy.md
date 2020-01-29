@@ -187,7 +187,7 @@ and our artwork sort has a touch of "trending" to it
 ---
 Trail: Cypress at Artsy, Critical Flows
 
-## Finding Art
+## Buying Art
 
 Notes:
 
@@ -242,7 +242,7 @@ Trail: Cypress at Artsy
 Trail: Cypress at Artsy, Challenges
 Layout: list
 
-## Why are integration/e2e tests hard?
+## Why are end-to-end tests hard?
 
 ### • Many moving parts
 
@@ -405,7 +405,7 @@ In general, the closer you are to testing your app the way a real user uses it, 
 But sometimes you need to find an element and there's **no way to target it** that a user would experience
 
 ---
-<!-- .slide: data-background="/images/architecture-selenium.jpg" -->
+<!-- .slide: data-background="/images/double-rail.jpg" -->
 Footer: false
 
 Notes:
@@ -579,16 +579,12 @@ cy.findByPlaceholderText("...")
 cy.findByRole("...")
 cy.findByTitle("...")
 cy.findByDataId("...")
-
-cy.findAllByText("...")
-...
 ```
 
 Notes:
 
 - different ways to search for elements how the _user_ experiences your app
 - dataId - escape hatch
-- findAll...
 - different methods to fail or not fail when something's not found
 
 ---
