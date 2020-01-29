@@ -20,9 +20,9 @@ and that meant writing some smoke tests
 to make sure the site was up after each deployment.
 
 ---
-Trail: Cypress at Artsy, Smoke Tests
+Footer: false
 
-todo: gif of artwork page
+<!-- .slide: data-background="/images/artwork-page.jpg" data-background-size="contain" -->
 
 Notes:
 
@@ -36,7 +36,7 @@ Trail: Cypress at Artsy, Smoke Tests
 ```javascript
 describe("Artwork", () => {
   it("/artwork/:id", () => {
-    cy.visit(`artwork/andy-goldsworthy-ammonite`)
+    cy.visit("artwork/andy-goldsworthy-ammonite")
     cy.get("h1").should("contain", "Andy Goldsworthy")
     cy.get("h2").should("contain", "Ammonite")
   })
@@ -47,23 +47,9 @@ Notes:
 
 this is what our test looked like. 
 
-Reeally simple.
+Not a lot to it
 
----
-
-Trail: Cypress at Artsy, Smoke Tests
-
-todo: gif of artwork page test in cypress
-
-<div class="myvideo">
-   <video style="display:block; width:100%; height:auto;" data-autoplay>
-       <source src="/images/testing.webm"  type="video/webm"  />
-   </video>
-</div>
-
-Notes:
-
-and this is what it looks like for cypress to run the test
+But it proves to us that we didn't totally break the artwork page
 
 ---
 Trail: Cypress at Artsy
@@ -75,12 +61,18 @@ Notes:
 and then we moved on to testing critical flows of our app
 
 ---
-Footer: false
-<!-- .slide: data-background-video="/images/logging-in.webm" data-background-size="contain" -->
+Trail: Cypress at Artsy, Critical Flows
+
+## Logging In
 
 Notes:
 
 like logging in
+
+---
+Footer: false
+<!-- .slide: data-background-video="/images/logging-in.webm" data-background-size="contain" -->
+
 
 ---
 Trail: Cypress at Artsy, Critical Flows
@@ -146,13 +138,21 @@ it("logs in admin user", () => {
 ```
 
 ---
-Footer: false
-<!-- .slide: data-background-video="/images/finding-art.webm" data-background-size="contain" -->
+Trail: Cypress at Artsy, Critical Flows
+
+## Finding Art
 
 Notes:
 
 and finding art
 
+---
+Footer: false
+<!-- .slide: data-background-video="/images/finding-art.webm" data-background-size="contain" -->
+
+Notes:
+
+many ways to filter:
 - filter by buy now
 - filter by medium and a few other options 
 - filter by price
@@ -175,11 +175,21 @@ it("filters by medium", () => {
 })
 ```
 
----
-Footer: false
-<!-- .slide: data-background-video="/images/buying-art.webm" data-background-size="contain" -->
+Notes:
 
-Notes: 
+...
+and if you have consistent reliable results, you could specify which artworks appeared
+
+we don't - our inventory is changing frequently, 
+
+and our artwork sort has a touch of "trending" to it
+
+---
+Trail: Cypress at Artsy, Critical Flows
+
+## Finding Art
+
+Notes:
 
 when they find something they love, we want to make sure they can
 
@@ -187,7 +197,14 @@ buy art
 
 - negotiate with the gallery
 - make an offer
-- buy it immediately
+
+---
+Footer: false
+<!-- .slide: data-background-video="/images/buying-art.webm" data-background-size="contain" -->
+
+Notes: 
+
+- or buy it immediately
 
 ---
 LineNumbers: 100
@@ -388,47 +405,94 @@ In general, the closer you are to testing your app the way a real user uses it, 
 But sometimes you need to find an element and there's **no way to target it** that a user would experience
 
 ---
-
-Trail: Cypress at Artsy, Challenges, Finding Elements
-
-todo: pic of artwork item on site
+<!-- .slide: data-background="/images/architecture-selenium.jpg" -->
+Footer: false
 
 Notes:
 
-Using an artwork item as an example, a couple ways to approach this:
+We use these rails all over our site to display different contexts of artwork
+
+And in each rail is a series of artwork cards
+
+If we imagine a scenario where we want to find an artwork 
+
+but it appears in two separate rails
+
+How do we target the one under "Your favorite works?"
 
 ---
 
 Trail: Cypress at Artsy, Challenges, Finding Elements
+LineNumbers: 1,7
 
-## Semantic Markup
+## Semantic CSS
 
-```jsx
-todo: semantic artwork item code
+```html
+<div class="recently-viewed">
+  <h2>Recently viewed</h2>
+  <ul>
+    <li><...Andy Goldsworthy artwork card... /></li>
+  </ul>
+</div>
+<div class="your-favorite-works">
+  <h2>Your favorite works</h2>
+  <ul>
+    <li><...Andy Goldsworthy artwork card... /></li>
+  </ul>
+</div>
 ```
 
 Notes:
 
-tempting.
+semantic css: css selectors describe an element's usage in the app
 
-it's way better than trying to use indexes of elements on the page
+so you might put a class on the element surrounding the card you want to grab
+
+---
+
+Trail: Cypress at Artsy, Challenges, Finding Elements
+LineNumbers: 100
+
+## Semantic CSS
+
+```javascript
+cy.get(".your-favorite-works").contains("Andy Goldsworthy")
+```
+
+Notes:
+
+and then to find it, your query looks like this
+
+it's definitely better than trying to use indexes of elements on the page
 
 and it works.
 
-until it doesn't, because a dev removed this class.
+until it doesn't, because a dev removes the semantic class or renames it.
 
 ...
 
-At Artsy, we don't write semantic markup
+At Artsy, we don't even write semantic markup
 
 ---
+LineNumbers: 1,7
 
 Trail: Cypress at Artsy, Challenges, Finding Elements
 
 ## React + Styled Components
 
-```jsx
-todo: styled components artwork item
+```html
+<div class="sc-bdVaJa jVrsza">
+  <h2>Recently viewed</h2>
+  <ul>
+    <li><...Andy Goldsworthy artwork card... /></li>
+  </ul>
+</div>
+<div class="sc-bdVaJa bOgaFD">
+  <h2>Your favorite works</h2>
+  <ul>
+    <li><...Andy Goldsworthy artwork card... /></li>
+  </ul>
+</div>
 ```
 
 Notes:
@@ -440,13 +504,34 @@ We have no semantics in our markup
 Compounding this: our test project is in a separate codebase than UI
 
 ---
+LineNumbers: 1,7
 
 Trail: Cypress at Artsy, Challenges, Finding Elements
 
 ## **data-** Attributes
 
-```jsx
-todo: semantic artwork item code with data-cypress-id
+```html
+<div class="sc-bdVaJa jVrsza">
+  <h2>Recently viewed</h2>
+  <ul>
+    <li><...Andy Goldsworthy artwork card... /></li>
+  </ul>
+</div>
+<div class="sc-bdVaJa bOgaFD" data-test="your-favorite-works">
+  <h2>Your favorite works</h2>
+  <ul>
+    <li><...Andy Goldsworthy artwork card... /></li>
+  </ul>
+</div>
+```
+
+---
+LineNumbers: 100
+
+Trail: Cypress at Artsy, Challenges, Finding Elements
+
+```javascript
+cy.get("[data-test=your-favorite-works]").contains("Andy Goldsworthy")
 ```
 
 Notes:

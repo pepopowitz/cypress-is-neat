@@ -12,6 +12,10 @@ code span.line-number:before {
   color: #aaaaaa;
 }
 
+code span.line-number.highlight-line {
+  font-weight: bold;
+}
+
 code span.highlight-line:before {
   color: orange;
 }

@@ -9,16 +9,6 @@ Fast, easy and reliable testing for anything that runs in a browser.
 
 ---
 
-todo: gif of tests running
-
-Notes:
-
-what it looks like
-
-We'll look at an actual running test later
-
----
-
 Trail: Cypress
 
 > All-in-one testing framework, assertion library, with mocking and stubbing, all without Selenium.
@@ -37,6 +27,21 @@ Notes:
 
 not unit, not integration
  
+---
+
+Footer: false
+<!-- .slide: data-background-video="/images/running-tests.webm" data-background-size="contain" -->
+
+Notes:
+
+what it looks like
+
+We'll look at an actual running test later
+
+left panel: every single event in browser
+
+right panel: your app
+
 ---
 
 Trail: Cypress, Architecture
