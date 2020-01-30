@@ -1291,17 +1291,19 @@ Trail: Verdict
 
 ## Does Cypress replace Selenium?
 
-### **Not yet.**
+### **No**
 
 <!-- .element: class="fragment" -->
 
 Notes:
 
+the cypress team thinks it will eventually, they just have to resolve:
+
 1) javascript only
 
 2) cross-browser testing
 
-they're working on it - but it's far away from being usable in ie.
+but they wield strong opinions (limitations)
 
 ---
 
