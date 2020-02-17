@@ -10,7 +10,7 @@ Footer: false
   </defs>
 </svg>
 
-## **Cypress:** End-to-end Testing For Developers & Quality Engineers
+## Reshaping The Testing Pyramid With **Cypress**
 
 <div class="contact">
 <h3>Steven Hicks</h3>
@@ -30,7 +30,7 @@ Footer: false
 <p>
 <svg class="icon">
   <use xlink:href="#si-zocial-cloudapp" />
-</svg> stevenhicks.me/cypress-for-devs-and-qa
+</svg> stevenhicks.me/reshaping-the-pyramid
 </p>
 
 </div>
@@ -60,7 +60,7 @@ Tech Lead at Artsy
 
 NYC, MKE
 
-our mission is to expand the art market, 
+our mission is to expand the art market,
 
 so that everyone can be moved by art daily.
 

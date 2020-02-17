@@ -1,5 +1,5 @@
 ---
-title: 'Cypress: End-to-end Testing For Developers & Quality Engineers - Steven J Hicks'
+title: 'Reshaping The Testing Pyramid With Cypress - Steven J Hicks'
 theme: css/theme.css
 revealOptions:
   transition: 'none'

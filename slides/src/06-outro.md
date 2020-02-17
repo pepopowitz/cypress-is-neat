@@ -1,4 +1,3 @@
-
 ---
 
 Footer: false
@@ -25,7 +24,7 @@ Footer: false
 <p>
 <svg class="icon">
   <use xlink:href="#si-zocial-cloudapp" />
-</svg> stevenhicks.me/cypress-for-devs-and-qa
+</svg> stevenhicks.me/reshaping-the-pyramid
 </p>
 
 </div>
