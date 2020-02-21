@@ -24,7 +24,7 @@ Footer: false
 <p>
 <svg class="icon">
   <use xlink:href="#si-zocial-cloudapp" />
-</svg> stevenhicks.me/reshaping-the-pyramid
+</svg> stevenhicks.me/cypress-reshapes-the-pyramid
 </p>
 
 </div>

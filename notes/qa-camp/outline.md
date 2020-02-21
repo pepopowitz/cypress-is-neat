@@ -92,6 +92,7 @@ Cypress
   - https://www.cypress.io/how-it-works/
 
 * Outline for abstract
+
   - What is Cypress?
   - History of e2e testing (i.e. selenium)
   - Neat features
@@ -102,27 +103,48 @@ Cypress
 * Research
   - how to set up data before and after?
 
-
 selenium webdriver vs cypress
 https://dzone.com/articles/cypress-vs-selenium-webdriver-which-is-better-for
 https://blog.red-badger.com/2017/6/16/cypress-a-genuine-alternative-to-selenium-at-last
 
 cypress
-  v javascript only
-    selenium supports many languages
-  v chrome only
-    selenium supports many
-  ^ quick setup
-  ^ runs directly in the browser
-    selenium has layers between your code & the browser
-    you can inspect things in your console!
-  ^ fast
-    fewer layers
-  ^ reliable
-    fewer layers
-    less waiting - it automatically waits for you.
-  ^ interactive
-    time travelling
-  ^ server mocking
-    maybe you don't want this
-  
+v javascript only
+selenium supports many languages
+v chrome only
+selenium supports many
+^ quick setup
+^ runs directly in the browser
+selenium has layers between your code & the browser
+you can inspect things in your console!
+^ fast
+fewer layers
+^ reliable
+fewer layers
+less waiting - it automatically waits for you.
+^ interactive
+time travelling
+^ server mocking
+maybe you don't want this
+
+colors:
+
+#9C6742
+#2D2618
+#CAC6BD
+#694427
+#DAB07D
+
+#fbf6d5 - extra light
+#f4d0aa - light
+#f29e3b - orange
+
+1.77 = -150
+1.6 = -90
+
+calc(-6000 / (17 \* (vw / vh)) + (8070 / 17))
+
+light: #ffce99
+medium: #E66C15
+dark: #BF4F1B
+darker: #872C13
+darkest: #420E07

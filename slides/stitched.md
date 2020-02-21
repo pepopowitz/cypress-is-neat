@@ -45,7 +45,7 @@ Footer: false
 <p>
 <svg class="icon">
   <use xlink:href="#si-zocial-cloudapp" />
-</svg> stevenhicks.me/reshaping-the-pyramid
+</svg> stevenhicks.me/cypress-reshapes-the-pyramid
 </p>
 
 </div>
@@ -250,12 +250,14 @@ Selenium supports many languages
 
 Trail: Cypress, Architecture
 
-## It's Chrome only
-### for now...
+## It's somewhat cross-browser
+### Chrome, Edge, & Firefox
 
 Notes:
 
-let's get that out of the way
+Safari & IE are "under consideration"
+
+so let's get that out of the way
 
 this might be a dealbreaker for you
 
@@ -287,13 +289,15 @@ anyone experience e2e tests that fail because of timing issues?
 
 Trail: Cypress, Features
 
-## Tests run when files update
+## Tests run when files update *
 
 ### tightening your **feedback loop**
 
 Notes:
 
 When you're running the tests locally, 
+
+Asterisk: when the _test_ files update.
 
 ---
 
@@ -889,8 +893,8 @@ Layout: list
 ## 1. Use a live database
 
 ### 👍🏼 Tests the entire stack
-### 👎🏼 Depends on live data not changing
-### 👎🏼 Requires fake users
+### 👎 Depends on live data not changing
+### 👎 Requires fake users
 
 Notes:
 
@@ -915,7 +919,7 @@ Layout: list
 
 ### 👍🏼 Tests the entire stack
 ### 👍🏼 We can seed it however we want
-### 👎🏼 Hard to set up
+### 👎 Hard to set up
 
 Notes:
 
@@ -934,7 +938,7 @@ Layout: list
 
 ### 👍🏼 Easier to set up
 ### 👍🏼 We can mock it however we want
-### 👎🏼 Doesn't test the entire stack
+### 👎 Doesn't test the entire stack
 
 Notes:
 
@@ -982,7 +986,46 @@ but it also has the biggest upfront cost - setting up all that data, in many dif
 
 I wouldn't be surprised to see us end up here _eventually_
 
-also: 3 might be great for you (cory)
+---
+
+Trail: Cypress at Artsy, Challenges, Data
+Layout: list
+
+## 1. Use a live database
+## 2. Use a test database
+## 3. **Use no database (mock data calls) **
+
+Notes:
+
+But also - #3 is really intriguing
+
+in a different way
+
+---
+Trail: Cypress at Artsy, Challenges, Data
+
+## 3. Use no database (mock data calls)
+
+# **TDD**
+
+<!-- .element: class="fragment" -->
+
+Notes:
+
+if you can mock out all your network calls, it makes it easy for you to use cypress for...
+
+---
+Trail: Cypress at Artsy, Challenges, Data, TDD
+
+# Demo!
+
+Notes:
+
+so I want to take a few minutes for another demo
+
+to show how you could TDD with Cypress
+
+if you mock out all your network communication
 
 ---
 
@@ -1215,6 +1258,93 @@ Notes:
 ---
 Trail: Cypress at Artsy, Challenges
 
+## Working With Variables
+
+Notes:
+
+is way harder than you would expect
+
+I actually intended to not talk about this
+
+I'd read that it was a difficult thing to do in Cypress, but thought it was an edge case I wouldn't need
+
+---
+
+Trail: Cypress at Artsy, Challenges, Working With Variables
+
+> You cannot assign or work with the return values of any Cypress command. **Commands are enqueued and run asynchronously.**
+
+[cypress.io](https://docs.cypress.io/guides/core-concepts/variables-and-aliases.html#Return-Values)
+
+Notes:
+
+
+---
+LineNumbers: 6
+
+Trail: Cypress at Artsy, Challenges, Working With Variables
+
+
+```javascript
+ // example pathname: /articles/12344
+
+function extractIDFromURL() {
+  return cy
+    .location('pathname')
+    .split('/')[2];
+}
+```
+
+### 👎🏼 This won't work.
+
+<!-- .element: class="fragment" -->
+
+Notes:
+
+Imagine you have a test where you want to extract the id from the url of the current page
+
+To extract that ID and store it, you might think...
+
+...
+
+but due to the nature of all commands in cypress being asynchronous
+
+which is what allows them all to automatically wait
+
+you can't do this - the result of location isn't a string
+
+it's cypress's implementation of a promise
+
+---
+LineNumbers: 100
+
+Trail: Cypress at Artsy, Challenges, Working With Variables
+
+```javascript
+ // example pathname: /articles/12344
+
+function extractIDFromURL() {
+  cy.location('pathname')
+    .invoke('split', '/')
+    .its(2)
+    .as('articleID');
+}
+```
+
+### 👍🏻
+
+Notes:
+
+so instead....
+
+and that "aliases" the value as a variable named articleID
+
+which you can access through a special cypress command
+
+---
+
+Trail: Cypress at Artsy, Challenges
+
 ## Limitations
 
 [https://docs.cypress.io/guides/references/trade-offs.html](https://docs.cypress.io/guides/references/trade-offs.html)
@@ -1353,8 +1483,6 @@ Trail: Verdict
 
 Notes:
 
-This is the holy grail for me
-
 historically there's been a wall that devs chuck things over for qa to look at
 
 but if we are co-owning the codebase
@@ -1364,6 +1492,103 @@ it's a chance for us to smash silos
 and get totally cross-functional
 
 and help each other out more
+
+---
+
+Trail: Verdict
+
+## The pyramid doesn't have to be a pyramid anymore
+
+Notes:
+
+Now that integration & e2e tests are so much easier with Cypress,
+
+we don't have to be bound to the pyramid.
+
+We can use a shape that makes most sense to us
+
+---
+
+Trail: Verdict
+
+TODO: image of just the pyramid
+
+Notes:
+
+And maybe that means _actually_ building a pyramid, instead of just unit tests
+
+---
+
+Trail: Verdict
+
+TODO: image of ice cream cone
+
+Notes:
+
+or maybe we feel like the e2e tests, inspiring the most confidence of all tests, is where we want to focus
+
+---
+
+Trail: Verdict
+
+TODO: image of diamond
+
+Notes:
+
+or maybe we really want to focus on the middle
+
+and while we're at it, let's get rid of these tiers that don't make sense anymore
+
+because it's not "e2e" vs "integration" that makes it hard
+
+---
+
+Trail: Verdict
+
+TODO: image of diamond with scale of dependence vs independence
+
+Notes:
+
+
+it's "do my tests depend on something I don't control?"
+
+unit tests don't. 
+
+e2e tests do.
+
+integration tests...depend on what they're all testing.
+
+---
+
+Trail: Verdict
+
+TODO: image of diamond with two tiers
+
+Notes:
+
+and that's what separates the easy tests from the hard tests
+
+are they independent? Do we control everything this test needs?
+
+Or are they dependent on something out of our control?
+
+...
+
+Choose your shape
+
+---
+
+Trail: Verdict
+
+TODO: image of ice cream cone with two tiers
+
+---
+
+Trail: Verdict
+
+TODO: image of pyramid with two tiers
+
+Notes:
 ---
 
 Footer: false
@@ -1390,7 +1615,7 @@ Footer: false
 <p>
 <svg class="icon">
   <use xlink:href="#si-zocial-cloudapp" />
-</svg> stevenhicks.me/reshaping-the-pyramid
+</svg> stevenhicks.me/cypress-reshapes-the-pyramid
 </p>
 
 </div>

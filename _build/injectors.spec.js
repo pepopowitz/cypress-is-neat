@@ -75,7 +75,7 @@ Trail: Heading1,Heading2,Heading3
 ## Subtitle
 
 <div class="footer">
-  stevenhicks.me/reshaping-the-pyramid 🦄 @pepopowitz
+  stevenhicks.me/cypress-reshapes-the-pyramid 🦄 @pepopowitz
 </div>`);
     });
 
@@ -106,7 +106,7 @@ blah blah blah
 ## Subtitle
 
 <div class="footer">
-  stevenhicks.me/reshaping-the-pyramid 🦄 @pepopowitz
+  stevenhicks.me/cypress-reshapes-the-pyramid 🦄 @pepopowitz
 </div>
 
 Notes:

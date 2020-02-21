@@ -92,12 +92,14 @@ Selenium supports many languages
 
 Trail: Cypress, Architecture
 
-## It's Chrome only
-### for now...
+## It's somewhat cross-browser
+### Chrome, Edge, & Firefox
 
 Notes:
 
-let's get that out of the way
+Safari & IE are "under consideration"
+
+so let's get that out of the way
 
 this might be a dealbreaker for you
 
@@ -129,13 +131,15 @@ anyone experience e2e tests that fail because of timing issues?
 
 Trail: Cypress, Features
 
-## Tests run when files update
+## Tests run when files update *
 
 ### tightening your **feedback loop**
 
 Notes:
 
 When you're running the tests locally, 
+
+Asterisk: when the _test_ files update.
 
 ---
 
