@@ -7,6 +7,10 @@ Fast, easy and reliable testing for anything that runs in a browser.
 
 [cypress.io](https://cypress.io)
 
+Notes:
+
+(definition on next slide)
+
 ---
 
 Trail: Cypress
@@ -19,7 +23,7 @@ Trail: Cypress
 
 Trail: Cypress
 
-> Cypress focuses on doing end-to-end testing REALLY well.
+> Cypress focuses on doing **end-to-end** testing REALLY well.
 
 [cypress.io](https://cypress.io)
 
@@ -59,6 +63,9 @@ many e2e tools _are_, under the covers
 
 Trail: Cypress, Architecture, Selenium
 
+Notes:
+
+the cypress team goes out of their way to compare the architectures of cypress & selenium
 
 ---
 <!-- .slide: data-background="/images/architecture-cypress.jpg" -->
@@ -79,7 +86,7 @@ also makes it **faster** because the communication is more direct
 
 Trail: Cypress, Architecture
 
-## It's JavaScript
+## It's **JavaScript**
 ### and so are the tests you write
 
 Notes:
@@ -92,7 +99,7 @@ Selenium supports many languages
 
 Trail: Cypress, Architecture
 
-## It's somewhat cross-browser
+## It's somewhat **cross-browser**
 ### Chrome, Edge, & Firefox
 
 Notes:
@@ -131,7 +138,7 @@ anyone experience e2e tests that fail because of timing issues?
 
 Trail: Cypress, Features
 
-## Tests run when files update *
+## Tests run when files update *****
 
 ### tightening your **feedback loop**
 
@@ -165,7 +172,7 @@ Trail: Cypress, Features
 
 ## Cypress runs in your browser
 
-### making your tests **fast**
+### making your tests **fast \***
 
 Notes:
 
@@ -279,6 +286,10 @@ describe("searching", () => {
   })
 })
 ```
+
+Notes:
+
+Lots of commands available on global cy object
 
 ---
 Trail: Cypress, Example

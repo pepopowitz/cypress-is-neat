@@ -1,0 +1,12 @@
+- cypress-is-neat
+  - yarn start
+  - 's' to view notes
+- integrity
+  - yarn start
+  - vs code on left of workspace
+  - cypress window - collapse all but mkejs section
+- heartsy
+  - yarn start
+  - during demo
+    - yarn test:cypress
+    - cypress window

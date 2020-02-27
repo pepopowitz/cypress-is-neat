@@ -30,7 +30,9 @@ it's a pyramid because there are tradeoffs
 - 3 on the left have better outcomes lower in the pyramid
 - 1 on the right has better outcomes higher in the pyramid
 
-we'll talk about the top of they pyramid today, e2e
+we'll talk about all of the pyramid a little later, 
+
+but for now we're going to focus on the top of the pyramid (e2e)
 
 and I'm especially interested in addressing one question:
 

@@ -79,10 +79,10 @@ Trail: Cypress at Artsy, Critical Flows, Logging In
 LineNumbers: 100
 
 ```javascript
-it("logs in admin user", () => {
+it("logs in user", () => {
   // 1. visit home
   // 2. pop login modal
-  // 3. log in admin user
+  // 3. log in user
   // 4. verify logged in
 })
 ```
@@ -96,7 +96,7 @@ Trail: Cypress at Artsy, Critical Flows, Logging In
 LineNumbers: 3,6,7,8,9
 
 ```javascript
-it("logs in admin user", () => {
+it("logs in user", () => {
   // 1. visit home
   cy.visit("/")
 
@@ -106,7 +106,7 @@ it("logs in admin user", () => {
     .contains("Log in")
     .click()
 
-  // 3. log in admin user
+  // 3. log in user
   // 4. verify logged in
 })
 ```
@@ -117,11 +117,11 @@ Trail: Cypress at Artsy, Critical Flows, Logging In
 LineNumbers: 6-14,17
 
 ```javascript
-it("logs in admin user", () => {
+it("logs in user", () => {
   // 1. visit home
   // 2. pop login modal
 
-  // 3. log in admin user
+  // 3. log in user
   cy.get("input[type=email]")
     .type(Cypress.env("ADMIN_USER"))
   cy.get("input[type=password]")
@@ -267,7 +267,7 @@ Layout: list
 
 ### 👍🏼 Tests the entire stack
 ### 👎 Depends on live data not changing
-### 👎 Requires fake users
+### 👎 Requires fake data in live DB
 
 Notes:
 
@@ -279,9 +279,9 @@ live db - from staging or production site
 
 2) (not much control)
 
-3) fake users: 
-3a) have to store them in the live db
-3b) have to store _creds_ somewhere the tests can access
+3) or creating _fake_ data in your live db
+
+like that artwork we just bought
 
 ---
 

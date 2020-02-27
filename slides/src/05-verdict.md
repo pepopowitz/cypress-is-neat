@@ -1,7 +1,5 @@
 ---
-
 Layout: module
-
 # The Verdict
 
 ---
@@ -18,9 +16,9 @@ Notes:
 
 the cypress team thinks it will eventually, they just have to resolve:
 
-1) javascript only
+1. javascript only
 
-2) cross-browser testing
+2. cross-browser testing
 
 but they wield strong opinions (limitations)
 
@@ -60,9 +58,9 @@ developers enjoying writing end-to-end tests can end one of two ways
 
 which you end up following says a lot about the relationships of your organization.
 
-1) no need for qa
+1. no need for qa
 
-2) ...
+2. ...
 
 ---
 
@@ -86,7 +84,7 @@ and help each other out more
 
 Trail: Verdict
 
-## The pyramid doesn't have to be a pyramid anymore
+## The **pyramid** doesn't have to be a **pyramid**
 
 Notes:
 
@@ -100,7 +98,7 @@ We can use a shape that makes most sense to us
 
 Trail: Verdict
 
-TODO: image of just the pyramid
+<!-- .slide: data-background="/images/pyramid-1-pyramid.jpg" -->
 
 Notes:
 
@@ -110,7 +108,7 @@ And maybe that means _actually_ building a pyramid, instead of just unit tests
 
 Trail: Verdict
 
-TODO: image of ice cream cone
+<!-- .slide: data-background="/images/pyramid-2-ice-cream-cone.jpg" -->
 
 Notes:
 
@@ -120,7 +118,7 @@ or maybe we feel like the e2e tests, inspiring the most confidence of all tests,
 
 Trail: Verdict
 
-TODO: image of diamond
+<!-- .slide: data-background="/images/pyramid-3-diamond.jpg" -->
 
 Notes:
 
@@ -128,53 +126,90 @@ or maybe we really want to focus on the middle
 
 and while we're at it, let's get rid of these tiers that don't make sense anymore
 
-because it's not "e2e" vs "integration" that makes it hard
+unit vs integration vs e2e implies that 
+
+the difference between the easy tests at the bottom 
+
+and the hard tests at the top
+
+is the amount of your code that's involved in the tests.
+
+and that's true to some degree, but not enough to define how many tests we write
 
 ---
 
 Trail: Verdict
 
-TODO: image of diamond with scale of dependence vs independence
+<!-- .slide: data-background="/images/pyramid-4-diamond-with-systems.jpg" -->
+
 
 Notes:
 
+our app interacts with all these other systems
 
-it's "do my tests depend on something I don't control?"
+that our outside of our code's control.
 
-unit tests don't. 
-
-e2e tests do.
-
-integration tests...depend on what they're all testing.
+and the tests that are hard to write/maintain
 
 ---
 
 Trail: Verdict
 
-TODO: image of diamond with two tiers
+<!-- .slide: data-background="/images/pyramid-5-diamond-connected.jpg" -->
+
 
 Notes:
 
-and that's what separates the easy tests from the hard tests
-
-are they independent? Do we control everything this test needs?
-
-Or are they dependent on something out of our control?
-
-...
-
-Choose your shape
+are the ones that include these other systems
 
 ---
 
 Trail: Verdict
 
-TODO: image of ice cream cone with two tiers
-
----
-
-Trail: Verdict
-
-TODO: image of pyramid with two tiers
+<!-- .slide: data-background="/images/pyramid-6-diamond-isolated.jpg" -->
 
 Notes:
+
+and the ones that isolate themselves from these other systems
+
+are easy to write/maintain
+
+---
+
+Trail: Verdict
+
+<!-- .slide: data-background="/images/pyramid-7-new-diamond.jpg" -->
+
+Notes:
+
+so I vote that we start thinking of tests in terms of connected vs isolated
+
+because that's a better representation of when tests are easy and when tests are hard
+
+PAUSE
+
+choose your shape - 
+
+a diamond where you write as many isolated as connected
+
+---
+
+Trail: Verdict
+
+<!-- .slide: data-background="/images/pyramid-8-new-ice-cream-cone.jpg" -->
+
+Notes:
+
+or focus more on connected tests for greater confidence
+
+---
+
+Trail: Verdict
+
+<!-- .slide: data-background="/images/pyramid-9-new-pyramid.jpg" -->
+
+Notes:
+
+or focus on isolated tests for greater control
+
+PAUSE
