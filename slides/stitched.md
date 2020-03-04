@@ -1025,20 +1025,67 @@ Trail: Cypress at Artsy, Challenges, Data
 
 Notes:
 
-if you can mock out all your network calls, it makes it easy for you to use cypress for...
+if you can mock out all your network calls, it makes it easy for you to use cypress for
+
+test driven development
 
 ---
 Trail: Cypress at Artsy, Challenges, Data, TDD
 
-# Demo!
+LineNumbers: 2-9
+
+```javascript
+it("renders a Log In link when I'm not logged in", () => {
+  cy.server();
+  cy.route({
+    url: '/api/me',
+    status: 404,
+    response: {
+      error: 'User does not exist',
+    },
+  });
+  
+  cy.visit('/');
+
+  cy.findByText('Log In');
+});
+```
 
 Notes:
 
-so I want to take a few minutes for another demo
+mock the server response
 
-to show how you could TDD with Cypress
+and then assert that UI elements are present
 
-if you mock out all your network communication
+---
+Trail: Cypress at Artsy, Challenges, Data, TDD
+
+LineNumbers: 2-10
+
+```javascript
+it("renders my info when I'm logged in", () => {
+  cy.server();
+  cy.route({
+    url: '/api/me',
+    response: {
+      userName: 'mr kittens',
+      firstName: 'Kittington',
+      lastName: 'Cat',
+    },
+  });
+
+  cy.visit('/');
+
+  cy.findByText('Welcome, Kittington!');
+  cy.findByAltText('Kittington Cat');
+});
+```
+
+Notes:
+
+...
+
+if we have time at the end, I can demo this
 
 ---
 
