@@ -30,21 +30,6 @@ Trail: Cypress
 Notes:
 
 not unit, not integration
- 
----
-
-Footer: false
-<!-- .slide: data-background-video="/images/running-tests.webm" data-background-size="contain" -->
-
-Notes:
-
-what it looks like
-
-We'll look at an actual running test later
-
-left panel: every single event in browser
-
-right panel: your app
 
 ---
 
@@ -195,6 +180,8 @@ or do whatever you want with it
 maybe you don't want to do this; 
 
 we'll talk more about the tradeoffs of mocking.
+
+But it **is** a feature that's built into cypress
 
 ---
 
@@ -473,8 +460,98 @@ describe("searching", () => {
 ```
 
 ---
-Trail: Cypress, Example
 
-# Demo!
+Footer: false
+<!-- .slide: data-background="/images/cypress-demo-0.jpg" data-background-size="contain" -->
 
 Notes:
+
+list of tests
+
+
+---
+
+Footer: false
+<!-- .slide: data-background-video="/images/cypress-demo-1.webm" data-background-size="contain" -->
+
+Notes:
+
+click on "searching"
+
+browser with two panes: 
+
+event list & UI
+
+---
+
+Footer: false
+<!-- .slide: data-background-video="/images/cypress-demo-2.webm" data-background-size="contain" -->
+
+Notes:
+
+let test run
+
+see events fill on left
+
+see UI change on right
+
+test complete!
+
+---
+
+Footer: false
+<!-- .slide: data-background-video="/images/cypress-demo-3.webm" data-background-size="contain" -->
+
+Notes:
+
+click into "searches for an artist"
+
+see all events
+
+click on "visit /" to inspect at that point
+
+---
+
+Footer: false
+<!-- .slide: data-background-video="/images/cypress-demo-4.webm" data-background-size="contain" -->
+
+Notes:
+
+see where test clicks into search box
+
+red dot!
+
+---
+
+Footer: false
+<!-- .slide: data-background-video="/images/cypress-demo-5.webm" data-background-size="contain" -->
+
+Notes:
+
+search results contain artist name
+
+---
+
+Footer: false
+<!-- .slide: data-background-video="/images/cypress-demo-6.webm" data-background-size="contain" -->
+
+Notes:
+
+navigate to new url
+
+empty browser as it navigates
+
+---
+
+Footer: false
+<!-- .slide: data-background-video="/images/cypress-demo-7.webm" data-background-size="contain" -->
+
+Notes:
+
+assert URL has changed
+
+different page in UI
+
+URL bar doesn't reflect updates for some reason
+
+(but it passes!)

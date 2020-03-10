@@ -56,7 +56,7 @@ Footer: false
 
 Notes:
 
-Tech Lead at Artsy
+Engineer at Artsy
 
 NYC, MKE
 

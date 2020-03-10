@@ -26,7 +26,7 @@ but they wield strong opinions (limitations)
 
 Trail: Verdict
 
-## Cypress is a tool.
+## Cypress is a great tool.
 
 Notes:
 
@@ -88,9 +88,11 @@ Trail: Verdict
 
 Notes:
 
-Now that integration & e2e tests are so much easier with Cypress,
+But the thing I've most learned from Cypress
 
-we don't have to be bound to the pyramid.
+is that we no longer need to be bound to the pyramid.
+
+Now that integration & e2e tests are so much easier with Cypress,
 
 We can use a shape that makes most sense to us
 

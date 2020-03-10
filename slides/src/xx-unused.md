@@ -154,3 +154,26 @@ Footer: false
 Notes:
 
 star student
+
+
+
+
+---
+
+Trail: Cypress at Artsy, Challenges, Limitations
+
+> Each test is bound to a **single origin**.
+
+[cypress.io](https://docs.cypress.io/guides/references/trade-offs.html)
+
+Notes:
+
+SSO
+
+if you're using a 3rd party auth provider, 
+
+you'll need to do some trickery to visit that second origin
+
+(request page programmatically & inspect response)
+
+(me: set cookies/local storage with spoofed auth)

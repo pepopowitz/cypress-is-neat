@@ -256,7 +256,9 @@ Notes:
 
 remember?
 
-Before we even started, we wanted to figure out how we would approach the data issue.
+Very early into writing Cypress tests, 
+
+you'll need to figure out how to approach the data issue.
 
 ---
 
@@ -808,24 +810,4 @@ Notes:
 We've talked about doing some complex auction bidding scenarios between multiple bidders
 
 workarounds described at url
-
----
-
-Trail: Cypress at Artsy, Challenges, Limitations
-
-> Each test is bound to a **single origin**.
-
-[cypress.io](https://docs.cypress.io/guides/references/trade-offs.html)
-
-Notes:
-
-SSO
-
-if you're using a 3rd party auth provider, 
-
-you'll need to do some trickery to visit that second origin
-
-(request page programmatically & inspect response)
-
-(me: set cookies/local storage with spoofed auth)
 
