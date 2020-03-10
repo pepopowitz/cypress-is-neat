@@ -114,33 +114,37 @@ body {
 }
 .reveal .title {
   text-align: left;
-  text-shadow: 2px 2px 5px var(--brand-black);
+  text-shadow: 1px 1px 5px var(--brand-black);
 }
 .reveal .title h1 {
   position: fixed;
+  color: var(--brand-medium);
   top: 0;
   line-height: 1em;
-  text-shadow: 2px 2px 5px var(--brand-black);
+  text-shadow: 2px 2px 5px var(--brand-white);
 }
 .reveal .title h2 {
   position: fixed;
+  color: var(--brand-medium);
   top: 0;
   max-width: 522px;
-  text-shadow: 2px 2px 5px var(--brand-black);
+  text-shadow: 2px 2px 5px var(--brand-white);
 }
 .reveal .title strong {
-  color: var(--brand-light);
+  color: var(--brand-context);
 }
 .reveal .title .contact {
   position: fixed;
   bottom: 0;
+  right: 0;
+  text-align: right;
 }
 .reveal .title h3 {
-  color: var(--brand-light);
-  text-shadow: 2px 2px 5px var(--brand-black);
+  color: var(--brand-white);
+  text-shadow: 1px 1px 10px var(--brand-black);
 }
 .reveal .title svg {
-  fill: var(--brand-light);
+  fill: var(--brand-white);
   width: 2em;
   height: 1em;
   vertical-align: text-bottom;

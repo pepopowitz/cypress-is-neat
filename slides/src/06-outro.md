@@ -2,7 +2,7 @@
 
 Footer: false
 
-<!-- .slide: data-background="/images/title.jpg" class="title" -->
+<!-- .slide: data-background="/images/title-2.jpg" class="title" -->
 
 # Thank you!
 
@@ -10,21 +10,24 @@ Footer: false
 <h3>Steven Hicks</h3>
 
 <p>
+@pepopowitz
 <svg class="icon">
   <use xlink:href="#si-zocial-twitter" />
-</svg>@pepopowitz
+</svg>
 </p>
 
 <p>
+steven.j.hicks@gmail.com
 <svg class="icon">
   <use xlink:href="#si-zocial-email" />
-</svg>steven.j.hicks@gmail.com
+</svg>
 </p>
 
 <p>
+stevenhicks.me/cypress-reshapes-the-pyramid
 <svg class="icon">
   <use xlink:href="#si-zocial-cloudapp" />
-</svg> stevenhicks.me/cypress-reshapes-the-pyramid
+</svg>
 </p>
 
 </div>
@@ -46,7 +49,7 @@ Layout: long-list
 
 Trail: Resources, Image Credits
 
-##### [Cover - Wil Stewart](https://unsplash.com/photos/UErWoQEoMrc)
+##### [Cover - Steffen Gundermann](https://unsplash.com/photos/PtGvu2P-Gco)
 
 ---
 
