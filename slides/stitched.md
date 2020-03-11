@@ -1235,7 +1235,7 @@ How do we target the one under "Your favorite works?"
 Trail: Cypress at Artsy, Challenges, Finding Elements
 LineNumbers: 1,7
 
-## Semantic CSS
+## Semantic Markup
 
 ```html
 <div class="recently-viewed">
@@ -1254,7 +1254,7 @@ LineNumbers: 1,7
 
 Notes:
 
-semantic css: css selectors describe an element's usage in the app
+semantic markup: css selectors describe an element's usage in the app
 
 so you might put a class on the element surrounding the card you want to grab
 
@@ -1263,10 +1263,11 @@ so you might put a class on the element surrounding the card you want to grab
 Trail: Cypress at Artsy, Challenges, Finding Elements
 LineNumbers: 100
 
-## Semantic CSS
+## Semantic Markup
 
 ```javascript
-cy.get(".your-favorite-works").contains("Andy Goldsworthy")
+cy.get(".your-favorite-works")
+  .contains("Andy Goldsworthy")
 ```
 
 Notes:
@@ -1341,7 +1342,8 @@ LineNumbers: 100
 Trail: Cypress at Artsy, Challenges, Finding Elements
 
 ```javascript
-cy.get("[data-test=your-favorite-works]").contains("Andy Goldsworthy")
+cy.get("[data-test=your-favorite-works]")
+  .contains("Andy Goldsworthy")
 ```
 
 Notes:
@@ -1495,7 +1497,7 @@ Notes:
 
 There are acknowledged limitations of Cypress
 
-and a few of them have affected us in our short time of using it
+and a couple I think are noteworthy
 
 url - don't write it down. go to my slides and click on the link.
 
@@ -1527,7 +1529,9 @@ Trail: Cypress at Artsy, Challenges, Limitations
 
 Notes:
 
-We've talked about doing some complex auction bidding scenarios between multiple bidders
+Saw it before with example - we logged in as two different users
+
+If you want to have a browser open per user, to compete against each other, tough luck
 
 workarounds described at url
 
@@ -1547,13 +1551,13 @@ Trail: Verdict
 
 Notes:
 
-the cypress team thinks it will eventually, they just have to resolve:
+the cypress team thinks it could
 
-1. javascript only
+but they wield strong opinions
 
-2. cross-browser testing
+which is great for their velocity!
 
-but they wield strong opinions (limitations)
+but limitations & lack of IE will prevent it from replacing selenium
 
 ---
 

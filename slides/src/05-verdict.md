@@ -14,13 +14,13 @@ Trail: Verdict
 
 Notes:
 
-the cypress team thinks it will eventually, they just have to resolve:
+the cypress team thinks it could
 
-1. javascript only
+but they wield strong opinions
 
-2. cross-browser testing
+which is great for their velocity!
 
-but they wield strong opinions (limitations)
+but limitations & lack of IE will prevent it from replacing selenium
 
 ---
 
